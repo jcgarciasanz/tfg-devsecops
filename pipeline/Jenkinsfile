@@ -1,0 +1,94 @@
+// Corpus de imágenes definido fuera del pipeline para reutilizarlo en todos los stages
+def CORPUS =[
+    ['python@sha256:aa7b73608abcfb021247bbb4c111435234a0459298a6da610681097a54ca2c2a', 'python-3.9-slim-bookworm'],
+    ['python@sha256:0d6d8b3a23cba2841d6557506e58c9637082908c5b152d0d0bab0c3d59d78ccb', 'python-3.9-alpine3.18'],
+    ['node@sha256:3ebf2875c188d22939c6ab080cfb1a4a6248cc86bae600ea8e2326aa03acdb8f',   'node-16-slim'],
+    ['node@sha256:a1f9d027912b58a7c75be7716c97cfbc6d3099f3a97ed84aa490be9dee20e787',   'node-16-alpine3.18'],
+    ['nginx@sha256:38f8c1d9613f3f42e7969c3b1dd5c3277e635d4576713e6453c6193e66270a6d',  'nginx-1.20'],
+    ['debian@sha256:89400a8b54c93d61bb2f971f1ada1d907b344f2422afabf23699fdf1f162faa0', 'debian-bullseye-slim']
+]
+
+pipeline{
+    agent any
+
+    environment{
+        RESULTS_DIR = "results/${BUILD_NUMBER}"
+    }
+
+    stages{
+
+        stage('Verificar herramientas'){
+            steps{
+                sh 'trivy --version'
+                sh 'grype version'
+                sh 'docker scout version'
+                sh 'docker info'
+            }
+        }
+
+        stage('Preparar directorio de resultados'){
+            steps{
+                sh "mkdir -p ${RESULTS_DIR}"
+            }
+        }
+
+        stage('Escaneo con Trivy'){
+            steps{
+                script{
+                    for(entry in CORPUS){
+                        def img = entry[0]
+                        def label = entry[1]
+                        sh "trivy image --quiet --format json --output ${RESULTS_DIR}/trivy_${label}.json ${img}"
+                    }
+                }
+            }
+        }
+
+        stage('Escaneo con Grype'){
+            steps{
+                script{
+                    for(entry in CORPUS){
+                        def img = entry[0]
+                        def label = entry[1]
+                        sh "grype ${img} --quiet -o json > ${RESULTS_DIR}/grype_${label}.json"
+                    }
+                }
+            }
+        }
+
+        stage('Escaneo con Docker Scout'){
+            steps{
+                script{
+                    for(entry in CORPUS){
+                        def img = entry[0]
+                        def label = entry[1]
+                        sh "docker scout cves --format sarif --output ${RESULTS_DIR}/scout_${label}.json ${img}"
+                    }
+                }
+            }
+        }
+
+        stage('Resumen'){
+            steps{
+                sh """
+                    echo "=== Archivos generados ==="
+                    ls -la ${RESULTS_DIR}/
+                    echo "=== Total de archivos ==="
+                    ls ${RESULTS_DIR}/*.json | wc -l
+                """
+            }
+        }
+    }
+
+    post{
+        always{
+            archiveArtifacts artifacts: "results/**/*.json", allowEmptyArchive: true
+        }
+        success{
+            echo "Escaneos completados. Vea resultados en ${RESULTS_DIR}"
+        }
+        failure{
+            echo "Pipeline fallido. Revise los logs."
+        }
+    }
+}
