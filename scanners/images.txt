@@ -1,0 +1,34 @@
+# Imágenes TFG - fijadas por digest SHA256 12/05/2026
+# Versiones usadas de scaners: Trivy 0.70.0, Grype 0.112.0, Docker Scout v1.20.4
+# Cada imagen se identifica con su digest SHA256, inmutable. Esto facilita reproducir este entorno, ya que cualquier escaneo futuro se ciñe a esa imagem binaria
+
+
+# Pares de contrastes planeados
+#      -Python sobre Debian vs Alpine (1 y 2)
+#      -Node sobre Debian vs Alpine (3 y 4)
+#      -nginx vs Debian (5 y 6)
+
+
+# 1. Python 3.9 sobre Debian Bookworm - variante slim
+#   Activa detetctores de apt (Debian) y pip (Python)
+python@sha256:aa7b73608abcfb021247bbb4c111435234a0459298a6da610681097a54ca2c2a
+
+#2. Python 3.9 sobre Alpine 3.18
+#   Activa detectores pip de Python y apk de Alpine.Par de contraste con la 1
+python@sha256:0d6d8b3a23cba2841d6557506e58c9637082908c5b152d0d0bab0c3d59d78ccb
+
+#3. Node 16 sobre Debian Buster - variante slim
+#   Activa detectores npm Node y apt de Debian
+node@sha256:3ebf2875c188d22939c6ab080cfb1a4a6248cc86bae600ea8e2326aa03acdb8f
+
+#4. Node 16 sobre Alpine 3.18
+#   Activa detectores apk de Alpine y nopm de Node. Par de contraste de la 3
+node@sha256:a1f9d027912b58a7c75be7716c97cfbc6d3099f3a97ed84aa490be9dee20e787
+
+#5. nginx 1.20 sobre Debian Buster
+#   Servidor web con dependencias propias. Para los escáneres OS-only
+nginx@sha256:38f8c1d9613f3f42e7969c3b1dd5c3277e635d4576713e6453c6193e66270a6d
+
+#6. Debian Bullseye - variante slim
+#   Imagen OS-only, sin rutime de lenguaje.tercera para mayor diversidad.
+debian@sha256:89400a8b54c93d61bb2f971f1ada1d907b344f2422afabf23699fdf1f162faa0
