@@ -219,3 +219,6 @@ __marimo__/
 
 #Archivos para probar localmente la normalización, agiliza el refinamiento y prueb y error
 results/
+
+# Datos generados por el script de normalización
+analysis/output/

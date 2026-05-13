@@ -3,13 +3,23 @@ import os
 import csv
 from pathlib import Path
 
+# Lista de imágenes, mismo orden que Jenkinsfile
+CORPUS = [
+    "python-3.9-slim-bookworm",
+    "python-3.9-alpine3.18",
+    "node-16-slim",
+    "node-16-alpine3.18",
+    "nginx-1.20",
+    "debian-bullseye-slim",
+]
+
 # Variables globales
 RESULTS_DIR = Path(os.getenv("RESULTS_DIR","/var/jenkins_home/workspace/tfg-devsecops-pipeline/results"))
-OUTPUT_DIR = Path(__file__).parent
+OUTPUT_DIR = Path(__file__).parent / "output"
 
 
 
-# Normalización Trivy — JSON propio con Results > Vulnerabilities
+# Normalización Trivy, JSON propio con Results > Vulnerabilities
 def normalize_trivy(filepath: Path, image: str) -> list[dict]:
     with open(filepath) as f:
         data = json.load(f)
@@ -29,7 +39,7 @@ def normalize_trivy(filepath: Path, image: str) -> list[dict]:
     return rows
 
 
-# Normalización Grype — JSON propio con matches > vulnerability + artifact
+# Normalización Grype, JSON propio con matches > vulnerability + artifact
 def normalize_grype(filepath: Path, image: str) -> list[dict]:
     with open(filepath) as f:
         data = json.load(f)
@@ -50,7 +60,7 @@ def normalize_grype(filepath: Path, image: str) -> list[dict]:
         })
     return rows
 
-# Normalización Docker Scout — usa formato SARIF, distinto a Trivy y Grype
+# Normalización Docker Scout, usa formato SARIF, distinto a Trivy y Grype
 def normalize_docker_scout(filepath: Path, image: str) -> list[dict]:
     with open(filepath) as f:
         data = json.load(f)
@@ -89,3 +99,10 @@ def normalize_docker_scout(filepath: Path, image: str) -> list[dict]:
                 "severity": severity.upper(),
             })
     return rows
+
+#Función para ejecutar los normalize
+def run(results_dir: Path, output_path: Path) -> None:
+    todas_las_filas = []
+    # Espacio después de almohadilla, sino saltan estilos y no encuentras error
+    # Por cada imagen del Corpus, lanzo los 3
+
