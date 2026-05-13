@@ -22,3 +22,44 @@ def agrupar_detecciones(csv_path: Path) -> dict:
             detecciones[clave].add(fila["scanner"])
 
     return detecciones
+
+# Filtra detecciones que cumplen umbral. Devuelve filas listas para volcar en el csv de ground truth
+def filtrar_por_consenso(detecciones: dict, umbral: int) -> list[dict]:
+    filas_ground_truth = []
+
+    for(image, cve_id, package), scanners in detecciones.items():
+        if len(scanners) >= umbral:
+            filas_ground_truth.append({
+                "image": image,
+                "cve_id": cve_id,
+                "package": package,
+                "n_scanners": len(scanners),
+                # Interesante guardar qué escáneres la detectaron, ordenados para que sea un csv mantenible
+                "scanners": ",".join(sorted(scanners)),
+            })
+    return filas_ground_truth
+
+# FUnción que ejecuta elproceso de agrupar, filtrar y volcar al CSV
+def run(csv_path: Path, output_path: Path, umbral: int) -> None:
+    print(f"Leyendo detecciones desde {csv_path}...")
+    detecciones = agrupar_detecciones(csv_path)
+    print(f" -> {len(detecciones)} vulnerabilidades únicas")
+    filas = filtrar_por_consenso(detecciones, umbral)
+    print(f" -> {len(filas)} pasan el umbral del consenso ({umbral} escáneres mínimos)")
+
+    # Enriquecer CSV
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    columnas = ["image", "cve_id", "package", "n_scanners", "scanners"]
+    with open(output_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=columnas)
+        writer.writeheader()
+        writer.writerows(filas)
+
+    print(f"\nGround truth generado en {output_path}")
+
+if __name__ == "__main__":
+    run(
+        csv_path=NORMALIZED_CSV,
+        output_path=OUTPUT_DIR / "ground_truth.csv",
+        umbral=UMBRAL_CONSENSO,
+    )
