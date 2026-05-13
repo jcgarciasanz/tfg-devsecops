@@ -21,7 +21,7 @@ pipeline{
             steps{
                 sh 'trivy --version'
                 sh 'grype version'
-                sh 'docker scout version'
+                sh 'docker-scout version'
                 sh 'docker info'
             }
         }
@@ -62,7 +62,7 @@ pipeline{
                     for(entry in CORPUS){
                         def img = entry[0]
                         def label = entry[1]
-                        sh "docker scout cves --format sarif --output ${RESULTS_DIR}/scout_${label}.json ${img}"
+                        sh "docker-scout cves --format sarif --output ${RESULTS_DIR}/scout_${label}.json ${img}"
                     }
                 }
             }
