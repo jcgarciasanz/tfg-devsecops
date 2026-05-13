@@ -26,3 +26,22 @@ def normalize_trivy(filepath: Path, image: str) -> list[dict]:
                 "severity": vuln.get("Severity", "UNKNOWN").upper(),
             })
     return rows
+
+#Nornmalización salida archivos resultado Grype
+def normalize_grype(filepath: Path, image: str) -> list[dict]:
+    with open(filepath) as f:
+        data = json.load(f)
+
+    rows = []
+    for match in data.get("matches", []):
+        vuln = match.get("vulnerability", {})
+        artifact = match.get("artifact", {})
+        rows.append({
+            "scanner": "grype",
+            "image": image,
+            "cve_id": vuln.get("id",""),
+            "package": artifact.get("name",""),
+            "version": artifact.get("version",""),
+            "severity": vuln.get("severity", "UNKNOWN").upper(),
+        })
+    return rows
