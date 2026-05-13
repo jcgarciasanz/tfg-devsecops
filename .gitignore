@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+#Archivos para probar localmente la normalización, agiliza el refinamiento y prueb y error
+results/
