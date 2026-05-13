@@ -11,6 +11,11 @@ def CORPUS =[
 pipeline{
     agent any
 
+    options{
+        ansiColor('xterm')
+        timestamps()
+    }
+
     environment{
         RESULTS_DIR = "results/${BUILD_NUMBER}"
     }
