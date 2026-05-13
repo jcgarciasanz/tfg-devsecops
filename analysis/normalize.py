@@ -105,4 +105,50 @@ def run(results_dir: Path, output_path: Path) -> None:
     todas_las_filas = []
     # Espacio después de almohadilla, sino saltan estilos y no encuentras error
     # Por cada imagen del Corpus, lanzo los 3
+    # Si la ruta no existe, no aborto el script entero — sigo con los demás.
+    # Así un fallo puntual de un escáner no me tira toda la ejecución.
 
+    for imagen in CORPUS:
+        # TRIVY
+        ruta_trivy = results_dir / f"trivy_{imagen}.json"
+        if ruta_trivy.exists(): # Importante
+            filas = normalize_trivy(ruta_trivy, imagen)
+            todas_las_filas.extend(filas)
+            print(f"trivy / {imagen}: {len(filas)} vulns")
+        else:
+            print(f"ERROR: no encontrada ruta de Trivy {ruta_trivy}")
+        
+        # GRYPE
+        ruta_grype = results_dir / f"grype_{imagen}.json"
+        if ruta_grype.exists():
+            filas = normalize_grype(ruta_grype, imagen)
+            todas_las_filas.extend(filas)
+            print(f"grype / {imagen}: {len(filas)} vulns")
+        else:
+            print(f"ERROR: no encontrada ruta Grype {ruta_grype}")
+        
+        # DOCKER SCOUT
+        ruta_scout = results_dir / f"scout_{imagen}.json"
+        if ruta_scout.exists():
+            filas = normalize_docker_scout(ruta_scout, imagen)
+            todas_las_filas.extend(filas)
+            print(f"scout / {imagen}: {len(filas)} vulns")
+        else:
+            print(f"ERROR: no encontrada ruta de Docker Scout {ruta_scout}")
+
+    # Ahora hay que pasar todo al CSV
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    columnas = ["scanner", "image", "cve_id", "package", "version", "severity"]
+    with open(output_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=columnas)
+        writer.writeheader()
+        writer.writerows(todas_las_filas)
+    print(f"\nTotal: {len(todas_las_filas)} filas -> {output_path}")
+
+if __name__ == "__main__":
+    # Necesario para discriminar entre si se ejecuta en Jenkins o en local para testear al desarrollar. En Jenkins BUILD_NUMBER viene, en local lo pongo yo
+    build = os.getenv("BUILD_NUMBER", "latest")
+    run(
+        results_dir= RESULTS_DIR / build,
+        output_path= OUTPUT_DIR / "normalized.csv"
+    )
