@@ -82,3 +82,16 @@ def calcula_metricas_scanners(df_norm,df_gt):
             })
     return pd.DataFrame(filas)
 
+def run():
+    """cargar csv, calcular métricas y guardar resultado"""
+    df_norm = pd.read_csv(NORMALIZED_CSV)
+    df_gt = pd.read_csv(GROUND_TRUTH_CSV)
+    metricas = calcula_metricas_scanners(df_norm, df_gt)
+
+    OUTPUT_DIR.mkdir(parents=True,exist_ok=True)
+    output_path= OUTPUT_DIR / "metricas_umbral2.csv"
+    metricas.to_csv(output_path, index=False)
+    print(f"Guardado: {output_path} ({len(metricas)} filas)")
+
+if __name__ == "__main__":
+    run()
