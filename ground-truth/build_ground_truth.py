@@ -1,5 +1,6 @@
 import csv
 import os
+import argparse
 from collections import defaultdict
 from pathlib import Path
 
@@ -7,8 +8,6 @@ from pathlib import Path
 NORMALIZED_CSV = Path(os.getenv("NORMALIZED_CSV", "analysis/output/normalized.csv"))
 OUTPUT_DIR = Path(__file__).parent / "output"
 
-# UMBRAL CONSENSO:  una vulnerabilidad satisface el ground truth si la detectan al menos n escáneres
-UMBRAL_CONSENSO = 2 
 # Hay que leer el csv normalizado que se ha generado y agrupar los datos formateados. Devolver un diccionario con la clave en una tupla con los escáneres que lo detectaron.
 
 def agrupar_detecciones(csv_path: Path) -> dict:
@@ -58,8 +57,19 @@ def run(csv_path: Path, output_path: Path, umbral: int) -> None:
     print(f"\nGround truth generado en {output_path}")
 
 if __name__ == "__main__":
-    run(
-        csv_path=NORMALIZED_CSV,
-        output_path=OUTPUT_DIR / "ground_truth.csv",
-        umbral=UMBRAL_CONSENSO,
+    # Implementación que deje elegir entre las opciones esperadas pero no romper el flujo previsto
+    parser = argparse.ArgumentParser(description="Genera gound truth por consenso multi-tool.")
+    parser.add_argument(
+        "--umbrales",type=int,nargs="+",choices=[1,2,3],default=[2,3],
+        help="Lista de umbrales a generar soportados (default: 2 3)"
     )
+    args = parser.parse_args()
+
+    for umbral in args.umbrales:
+        # El ground truth principal del TFG mantiene su formato, los demás llevan el sufijo
+        sufijo = "" if umbral == 2 else f"_umbral{umbral}"
+        run(
+            csv_path=NORMALIZED_CSV,
+            output_path=OUTPUT_DIR / f"ground_truth{sufijo}.csv",
+            umbral=umbral
+        )

@@ -222,3 +222,6 @@ results/
 
 # Datos generados por el script de normalización
 analysis/output/
+
+# Datos generados por el build del ground truth
+ground-truth/output/
