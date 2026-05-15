@@ -19,18 +19,16 @@ CLAVE = ["image","cve_id","package"]
 
 
 
+############################################
+############## Auxiliares ##################
+############################################
 
-def _calcular_prec_recc_f1(tp: int, fp: int, fn: int) -> tuple[float, float, float]:
-    """
-    Función para encapsular el cálculo de precisión, recall y F1.
-    Devuelve tupla de 3 posiciones float con el resultado del cálculo de los valores.
-    El _indica que es una función auxiliar, no de la parte pública de stats.py
-    """
-    precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
-    recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
-    f1 = (2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0.0)
-    return round(precision,4), round(recall,4), round(f1,4)
 
+
+
+############################################
+############## PÚBLICAS ####################
+############################################
 def calcula_metricas_scanners(df_norm,df_gt):
     """
     Calcula TP, FP, FN y las tres métricas derivadas (precisión, recall, F1)
@@ -64,12 +62,11 @@ def calcula_metricas_scanners(df_norm,df_gt):
             tiene recall 0.1 y se está perdiendo el 90% de las vulns.
     """
     filas = []
-
+    imagenes = sorted(set(df_norm["image"]) | set(df_gt["image"]))
     for scanner in df_norm["scanner"].unique():
         # Subset de detecciones por imagen
-        df_s = df_norm[df_norm["scanner"] == scanner]
-
-        for image in df_norm["image"].unique():
+        df_s = df_norm[df_norm["scanner"] == scanner]        
+        for image in imagenes:
             # Sets de tuplas (image, cve_id, package). TP/FP/FN se leen literalmente como las operaciones de conjunto de toda la vida.
             detectado = set(map(tuple, df_s[df_s["image"] == image][CLAVE].values))
             real = set(map(tuple, df_gt[df_gt["image"] == image][CLAVE].values))
@@ -92,6 +89,17 @@ def calcula_metricas_scanners(df_norm,df_gt):
                 "f1": f1,
             })
     return pd.DataFrame(filas)
+
+def calcular_concordancia(df_norm):
+    """
+    Calculamos coeficiente de acuerdo sobre el universo de la unión de las detecciones.
+
+    1. Construye matriz binaria (vulnerabilidad x scanner).
+    2. Calcula Cohen's kappa por pares para las 3 combinaciones posibles ( [trivy/grype], [trivy/scout], [grype/scout])
+    3 .Calcula Fleiss kappa para los 3 escáneres
+
+    Devuelve un DataFrame con todos los coeficientes, formateado para su volcado a csv y posterior consumo de la API REST
+    """
 
 
 def run():
