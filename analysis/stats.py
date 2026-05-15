@@ -75,7 +75,22 @@ def _calcular_cohen_kappa(col_a,col_b):
     kappa = 1 -> acuerdo total
 
     """
-    raise NotImplementedError
+    n = len(col_a)
+
+    a= ((col_a == 1) & (col_b == 1)).sum() #ambos detectan
+    b= ((col_a == 1) & (col_b == 0)).sum() #solo primero detecta
+    c= ((col_a == 0) & (col_b == 1)).sum() #solo segundo
+    d= ((col_a == 0) & (col_b == 0)).sum() #ninguno
+
+    po = (a + d)/n
+    p_a_yes = (a+b)/n
+    p_b_yes = (a+c)/n
+    pe = p_a_yes * p_b_yes + (1-p_a_yes)*(1-p_b_yes)
+
+    kappa = (po-pe)/(1-pe) if (1-pe) > 0 else 0.0
+
+    return round(kappa, 4)
+
 
 def _calcular_fleiss_kappa(matriz_bin):
     """
@@ -83,7 +98,26 @@ def _calcular_fleiss_kappa(matriz_bin):
     1 acuerdo perfecto, 0 azar.
     Calcula Fleiss sobre todas las columnas, a partir de la matriz entera
     """
-    raise NotImplementedError
+    n=len(matriz_bin)
+    N=matriz_bin.shape[1]
+
+    n_scn_yes = matriz_bin.sum(axis=1)
+    n_scn_no = N-n_scn_yes
+
+
+    P_agre = (n_scn_yes**2 + n_scn_no**2 - N)/(N*(N-1))
+
+    P_avg_agree= P_agre.mean()
+
+    total_1 = matriz_bin.values.sum()
+    p_1 = total_1 / (n*N)
+    p_0 = 1 - p_1
+
+    P_agree_azar = p_0**2 + p_1**2
+
+    kappa = (P_avg_agree - P_agree_azar)/(1-P_agree_azar) if (1-P_agree_azar) > 0 else 0.0
+
+    return round(kappa, 4)
 
 
 
@@ -174,11 +208,11 @@ def run():
     metricas.to_csv(output_path, index=False)
     print(f"Guardado: {output_path} ({len(metricas)} filas)")
 
-    # Verificación de que funciona el build matriz
+    # Verificación de que fleiss
     matriz = _build_matriz_binaria(df_norm)
-    print(f"\nMatriz binaria - shape: {matriz.shape}")
-    print(f"Suma por escáner:\n{matriz.sum()}")
-    print(f"\nPrimeras 5 filas:\n{matriz.head()}")
+    fleiss = _calcular_fleiss_kappa(matriz)
+    print(f"\nFleiss kappa de los 3 escáneres: {fleiss}")
+    
 
 if __name__ == "__main__":
     run()
