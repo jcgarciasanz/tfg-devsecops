@@ -241,6 +241,32 @@ def calcular_friedman(df_metricas):
         "num_imagenes": len(df_metricas["image"].unique())
     }])
 
+def calcular_bootstrap_ci(df_metricas):
+
+
+
+    filas=[]
+    for scanner in sorted(df_metricas["scanner"].unique()):
+        f1_val = df_metricas[df_metricas["scanner"] == scanner]["f1"].values
+
+        resultado = bootstrap(
+                (f1_val,),
+                statistic=np.mean,
+                n_resamples=9999,
+                confidence_level=0.95,
+                method="BCa",
+                rng=42,
+        )
+
+        filas.append({
+            "scanner": scanner,
+            "f1_mean": round(f1_val.mean(),4),
+            "f1_ci_low": round(resultado.confidence_interval.low, 4),
+            "f1_ci_high": round(resultado.confidence_interval.high, 4)
+        })
+
+    return pd.DataFrame(filas)
+
 
 def run():
     """cargar csv, calcular métricas y guardar resultado"""
@@ -266,6 +292,12 @@ def run():
     output_path = OUTPUT_DIR/"friedman.csv"
     friedman.to_csv(output_path, index=False)
     print(f"Guardado: {output_path} ({len(friedman)} filas)")
+
+    #Bootstrap sobre F1 por cada escáner
+    bootstrap_ci = calcular_bootstrap_ci(metricas)
+    output_path = OUTPUT_DIR / "bootstrap_ci.csv"
+    bootstrap_ci.to_csv(output_path, index=False)
+    print(f"Guardado: {output_path} ({len(bootstrap_ci)} filas)")
 
 if __name__ == "__main__":
     run()
