@@ -17,6 +17,20 @@ OUTPUT_DIR = Path("analysis/output")
 # única — misma decisión que en build_ground_truth.py
 CLAVE = ["image","cve_id","package"]
 
+
+
+
+def _calcular_prec_recc_f1(tp: int, fp: int, fn: int) -> tuple[float, float, float]:
+    """
+    Función para encapsular el cálculo de precisión, recall y F1.
+    Devuelve tupla de 3 posiciones float con el resultado del cálculo de los valores.
+    El _indica que es una función auxiliar, no de la parte pública de stats.py
+    """
+    precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
+    recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+    f1 = (2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0.0)
+    return round(precision,4), round(recall,4), round(f1,4)
+
 def calcula_metricas_scanners(df_norm,df_gt):
     """
     Calcula TP, FP, FN y las tres métricas derivadas (precisión, recall, F1)
@@ -64,11 +78,8 @@ def calcula_metricas_scanners(df_norm,df_gt):
             fp = len(detectado - real)
             fn = len(real - detectado)
             # Guarda contra div/0 — pasa en Scout × Alpine, no es teórico: si el escáner no reporta nada en una imagen, tp+fp = 0.
-
-            precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
-            recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
-            f1 = (2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0.0)
-
+            precision, recall, f1 = _calcular_prec_recc_f1(tp,fp,fn)
+            
             # Redondeo a 4 decimales solo para que el CSV no quede ilegible con 17 dígitos. Para el análisis estadístico no afecta.
             filas.append({
                 "scanner": scanner,
@@ -76,11 +87,12 @@ def calcula_metricas_scanners(df_norm,df_gt):
                 "tp": tp,
                 "fp": fp,
                 "fn": fn,
-                "precision": round(precision,4),
-                "recall": round(recall,4),
-                "f1": round(f1,4),
+                "precision": precision,
+                "recall": recall,
+                "f1": f1,
             })
     return pd.DataFrame(filas)
+
 
 def run():
     """cargar csv, calcular métricas y guardar resultado"""
