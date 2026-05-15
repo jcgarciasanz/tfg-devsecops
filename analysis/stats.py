@@ -6,8 +6,10 @@ responder a la pregunta central de este TFG: ¿existe una diferencia significati
 
 """
 import pandas as pd
+import numpy as np
 from pathlib import Path
 from itertools import combinations
+from scipy.stats import friedmanchisquare, bootstrap
 
 # Rutas relativas a la raíz del repo — esto solo funciona si lanzas el script desde la raíz del proyecto (decisión consciente, evita liarme con paths absolutos que no son portables)
 NORMALIZED_CSV = Path("analysis/output/normalized.csv")
@@ -220,6 +222,25 @@ def calcular_concordancia(df_norm):
         "fleiss": df_fleiss,
     }
 
+def calcular_friedman(df_metricas):
+    """"""
+    # F1 por escáner, organizado por imagen
+    f1_por_scanner = {}
+    for scanner in sorted(df_metricas["scanner"].unique()):
+        df_scann = df_metricas[df_metricas["scanner"] == scanner].sort_values("image")
+        f1_por_scanner[scanner] = df_scann["f1"].values
+
+
+    # Test de Friedman
+    statistic , pvalue = friedmanchisquare(*f1_por_scanner.values())
+
+    return pd.DataFrame([{
+        "statistic": round(statistic , 4),
+        "pvalue": round(pvalue, 6),
+        "significativo": pvalue < 0.05,
+        "num_imagenes": len(df_metricas["image"].unique())
+    }])
+
 
 def run():
     """cargar csv, calcular métricas y guardar resultado"""
@@ -238,6 +259,13 @@ def run():
         output_path = OUTPUT_DIR/f"{nombre}_kappa.csv"
         df.to_csv(output_path, index=False)
         print(f"Guardado: {output_path} ({len(df)} filas)")
+
+
+    # Test de Friedman sobre F1 pr imagen
+    friedman = calcular_friedman(metricas)
+    output_path = OUTPUT_DIR/"friedman.csv"
+    friedman.to_csv(output_path, index=False)
+    print(f"Guardado: {output_path} ({len(friedman)} filas)")
 
 if __name__ == "__main__":
     run()
