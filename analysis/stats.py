@@ -13,7 +13,7 @@ from scipy.stats import friedmanchisquare, bootstrap
 
 # Rutas relativas a la raíz del repo — esto solo funciona si lanzas el script desde la raíz del proyecto (decisión consciente, evita liarme con paths absolutos que no son portables)
 NORMALIZED_CSV = Path("analysis/output/normalized.csv")
-GROUND_TRUTH_CSV = Path("ground-truth/output/ground_truth.csv")
+GROUND_TRUTH_DIR = Path("ground-truth/output")
 OUTPUT_DIR = Path("analysis/output")
 
 # La tripleta (image, cve_id, package) es lo que define una detección
@@ -270,34 +270,40 @@ def calcular_bootstrap_ci(df_metricas):
 
 def run():
     """cargar csv, calcular métricas y guardar resultado"""
-    df_norm = pd.read_csv(NORMALIZED_CSV)
-    df_gt = pd.read_csv(GROUND_TRUTH_CSV)
-    metricas = calcula_metricas_scanners(df_norm, df_gt)
+    df_norm=pd.read_csv(NORMALIZED_CSV)
 
-    OUTPUT_DIR.mkdir(parents=True,exist_ok=True)
-    output_path= OUTPUT_DIR / "metricas_umbral2.csv"
-    metricas.to_csv(output_path, index=False)
-    print(f"Guardado: {output_path} ({len(metricas)} filas)")
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Concordancia. Cohen pareado y Fleiss agregado, cada uno en csv
-    concordancia = calcular_concordancia(df_norm)
+    # Se geenran uan sola y sin sufijo, documentado.
+    #Cohen y Fleiss kappa no dependen del umbral (cálculo sobre unión de detecciones).
+    concordancia=calcular_concordancia(df_norm)
     for nombre,df in concordancia.items():
-        output_path = OUTPUT_DIR/f"{nombre}_kappa.csv"
+        output_path=OUTPUT_DIR/f"{nombre}_kappa.csv"
         df.to_csv(output_path, index=False)
         print(f"Guardado: {output_path} ({len(df)} filas)")
 
+    #Métricas P/R/F1, Friedman y bootsrap SÍ dependen del GT, uno por umbral
+    for umbral in [2,3]:
+        sufijo = f"_umbral{umbral}"
+        gt_filename = "ground_truth.csv" if umbral == 2 else f"ground_truth_umbral{umbral}.csv"
+        df_gt = pd.read_csv(GROUND_TRUTH_DIR / gt_filename)
 
-    # Test de Friedman sobre F1 pr imagen
-    friedman = calcular_friedman(metricas)
-    output_path = OUTPUT_DIR/"friedman.csv"
-    friedman.to_csv(output_path, index=False)
-    print(f"Guardado: {output_path} ({len(friedman)} filas)")
+        print(f"\n--- Análisis con umbral {umbral} ({len(df_gt)} vulnerabilidades en GT)---")
 
-    #Bootstrap sobre F1 por cada escáner
-    bootstrap_ci = calcular_bootstrap_ci(metricas)
-    output_path = OUTPUT_DIR / "bootstrap_ci.csv"
-    bootstrap_ci.to_csv(output_path, index=False)
-    print(f"Guardado: {output_path} ({len(bootstrap_ci)} filas)")
+        metricas = calcula_metricas_scanners(df_norm, df_gt)
+        output_path = OUTPUT_DIR / f"metricas{sufijo}.csv"
+        metricas.to_csv(output_path, index=False)
+        print(f"Guardado: {output_path} ({len(metricas)} filas)")
+
+        friedman = calcular_friedman(metricas)
+        output_path = OUTPUT_DIR / f"friedman{sufijo}.csv"
+        friedman.to_csv(output_path, index=False)
+        print(f"Guardado: {output_path} ({len(friedman)} filas)")
+
+        bootstrap_ci = calcular_bootstrap_ci(metricas)
+        output_path = OUTPUT_DIR / f"bootstrap_ci{sufijo}.csv"
+        bootstrap_ci.to_csv(output_path,index=False)
+        print(f"Guardado: {output_path} ({len(bootstrap_ci)} filas)")
 
 if __name__ == "__main__":
     run()
