@@ -43,7 +43,23 @@ def _build_matriz_binaria(df_norm):
     Llamamos universo a la unión de las detecciones de los escáneres, NO al GT. Decisión metodológica que se tuvo que tomar para evitar circularidad.
     Si hubiéramos usado el GT como universo (como se había planteado al inicio) sesgaría Kappa al alza, ya que el GT se construye por consenso de esos mismos escáneres evaluados. Documentado en memoria.
     """
-    raise NotImplementedError
+    vulns_universo = sorted(set(map(tuple,df_norm[CLAVE].values)))
+    scanners = sorted(df_norm["scanner"].unique())
+
+    detecciones_por_scanner = {
+        s: set(map(tuple,df_norm[df_norm["scanner"] == s][CLAVE].values))
+        for s in scanners
+    }
+
+    filas = []
+    for vuln in vulns_universo:
+        fila = {s: 1 if vuln in detecciones_por_scanner[s] 
+                    else 0 for s in scanners}
+        filas.append(fila)
+    return pd.DataFrame(
+         filas,
+         index= pd.MultiIndex.from_tuples(vulns_universo,names=CLAVE)
+     )
 
 def _calcular_cohen_kappa(col_a,col_b):
     """
@@ -157,6 +173,12 @@ def run():
     output_path= OUTPUT_DIR / "metricas_umbral2.csv"
     metricas.to_csv(output_path, index=False)
     print(f"Guardado: {output_path} ({len(metricas)} filas)")
+
+    # Verificación de que funciona el build matriz
+    matriz = _build_matriz_binaria(df_norm)
+    print(f"\nMatriz binaria - shape: {matriz.shape}")
+    print(f"Suma por escáner:\n{matriz.sum()}")
+    print(f"\nPrimeras 5 filas:\n{matriz.head()}")
 
 if __name__ == "__main__":
     run()
