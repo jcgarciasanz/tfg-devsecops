@@ -22,7 +22,52 @@ CLAVE = ["image","cve_id","package"]
 ############################################
 ############## Auxiliares ##################
 ############################################
+def _calcular_prec_recc_f1(tp: int, fp: int, fn: int) -> tuple[float, float, float]:
+    """
+    Función para encapsular el cálculo de precisión, recall y F1.
+    Devuelve tupla de 3 posiciones float con el resultado del cálculo de los valores.
+    El _ indica que es una función auxiliar, no de la parte pública de stats.py
+    """
+    precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
+    recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+    f1 = (2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0.0)
+    return round(precision,4), round(recall,4), round(f1,4)
 
+def _build_matriz_binaria(df_norm):
+    """
+    Para el cálculo de kappa necesitamos construir esta matriz.
+    Celdas: si el escáner NO detecta vulnerabilidad 0, si SÍ 1.
+    Filas: (image,cve_id,package) cada vulnerabilidad única del universo
+    Columnas: cada escáner
+
+    Llamamos universo a la unión de las detecciones de los escáneres, NO al GT. Decisión metodológica que se tuvo que tomar para evitar circularidad.
+    Si hubiéramos usado el GT como universo (como se había planteado al inicio) sesgaría Kappa al alza, ya que el GT se construye por consenso de esos mismos escáneres evaluados. Documentado en memoria.
+    """
+    raise NotImplementedError
+
+def _calcular_cohen_kappa(col_a,col_b):
+    """
+    Calculamos Cohen's kappa para par de evaluadores con voto binario. Mide acuerdo entre el par corregido por azar.
+
+    Recibimos par de columnas con el mismo índice (series pandas). Sin nombre, el cálculo es independiente de él.
+    kappa = (po - pe)/(1 - pe)
+    -po: acuerdo observado
+    -pe: esperado por azar dadas las tasas de detección de cada escáner
+
+    kappa < 0 peor que azar (raro)
+    kappa = 0 -> acuerdo igual al azar
+    kappa = 1 -> acuerdo total
+
+    """
+    raise NotImplementedError
+
+def _calcular_fleiss_kappa(matriz_bin):
+    """
+    El cálculo de Fleiss kappa es una extensión del multi-evaluador. Devuelve sólo 1 número para los N escáneres a la vez, en vez de N x (N-1)/2 pares de Cohen kappa.
+    1 acuerdo perfecto, 0 azar.
+    Calcula Fleiss sobre todas las columnas, a partir de la matriz entera
+    """
+    raise NotImplementedError
 
 
 
