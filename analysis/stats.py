@@ -7,6 +7,7 @@ responder a la pregunta central de este TFG: ¿existe una diferencia significati
 """
 import pandas as pd
 from pathlib import Path
+from itertools import combinations
 
 # Rutas relativas a la raíz del repo — esto solo funciona si lanzas el script desde la raíz del proyecto (decisión consciente, evita liarme con paths absolutos que no son portables)
 NORMALIZED_CSV = Path("analysis/output/normalized.csv")
@@ -195,6 +196,29 @@ def calcular_concordancia(df_norm):
 
     Devuelve un DataFrame con todos los coeficientes, formateado para su volcado a csv y posterior consumo de la API REST
     """
+    matriz= _build_matriz_binaria(df_norm)
+    scanners= matriz.columns.to_list()
+
+    filas_cohens=[]
+    for scan_a, scan_b in combinations(scanners, 2):
+        kappa = _calcular_cohen_kappa(matriz[scan_a], matriz[scan_b])
+        filas_cohens.append({
+            "scanner_a": scan_a,
+            "scanner_b": scan_b,
+            "kappa": kappa,
+        })
+    df_cohens = pd.DataFrame(filas_cohens)
+
+    fleiss = _calcular_fleiss_kappa(matriz)
+    df_fleiss = pd.DataFrame([{
+        "scanners": ",".join(scanners),
+        "kappa": fleiss,
+    }])
+
+    return {
+        "cohen": df_cohens,
+        "fleiss": df_fleiss,
+    }
 
 
 def run():
@@ -208,11 +232,12 @@ def run():
     metricas.to_csv(output_path, index=False)
     print(f"Guardado: {output_path} ({len(metricas)} filas)")
 
-    # Verificación de que fleiss
-    matriz = _build_matriz_binaria(df_norm)
-    fleiss = _calcular_fleiss_kappa(matriz)
-    print(f"\nFleiss kappa de los 3 escáneres: {fleiss}")
-    
+    # Concordancia. Cohen pareado y Fleiss agregado, cada uno en csv
+    concordancia = calcular_concordancia(df_norm)
+    for nombre,df in concordancia.items():
+        output_path = OUTPUT_DIR/f"{nombre}_kappa.csv"
+        df.to_csv(output_path, index=False)
+        print(f"Guardado: {output_path} ({len(df)} filas)")
 
 if __name__ == "__main__":
     run()
