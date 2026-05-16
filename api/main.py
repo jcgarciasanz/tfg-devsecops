@@ -8,7 +8,7 @@ Levanta FastAPI, registra routers de dominio funcional y configura CORS para Str
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
-from api.routers import utilidad
+from api.routers import utilidad, concordancia
 
 from api.config import API_VERSION
 
@@ -55,6 +55,7 @@ def root():
 
 # REGISTRO DE ROUTERS
 app.include_router(utilidad.router)
+app.include_router(concordancia.router)
 
 
 # REGISTRO DE ROUTERS
