@@ -13,6 +13,16 @@ st.set_page_config(
     page_title="TFG DevSecOps - Comparativa de escáneres de vulnerabilidades",
     layout="wide",
 )
+
+st.markdown("""
+<style>
+[data-testid="stCaptionContainer"] {
+    font-size: 1.15rem !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+
 # SIDEBAR
 st.sidebar.header("Configuración")
 umbral = st.sidebar.radio(
@@ -111,6 +121,7 @@ fig.update_layout(
     paper_bgcolor="rgba(0,0,0,0)",
 )
 st.plotly_chart(fig, use_container_width=True)
+st.markdown("---")
 
 #Métricas Friedman
 st.subheader(f"Test de Friedman (umbral {umbral})")
@@ -141,6 +152,7 @@ st.caption(
     f"H₀: no hay diferencias entre escáneres. "
     f"{'Rechazada' if significativo else 'No rechazada'} con p < 0.05."
 )
+st.markdown("---")
 
 # Tabla scanner x imagen
 
@@ -173,6 +185,7 @@ st.caption(
     "TP: vulnerabilidades del GT detectadas. FP: detecciones del escáner no presentes en el GT. "
     "FN: vulnerabilidades del GT no detectadas por el escáner."
 )
+st.markdown("---")
 
 # Concordancia entre escáneres
 st.subheader("Concordancia entre escáneres (sobre la unión de detecciones)")
@@ -219,3 +232,4 @@ st.caption(
 )
 
 st.markdown("---")
+st.caption("Trabajo de Fin de Grado · Grado en Informática · URJC · 2026")
