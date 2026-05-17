@@ -4,8 +4,9 @@ Frontend interactivo de los datos de Trivy/Grype/DockerScout
 """
 
 import streamlit as st
+import plotly.graph_objects as go
 import api_client
-from config import UMBRALES_DISPONIBLES, UMBRAL_DEFAULT
+from config import UMBRALES_DISPONIBLES, UMBRAL_DEFAULT, SCANNER_COLORS
 
 st.set_page_config(
     page_title="TFG DevSecOps - Comparativa de escáneres de vulnerabilidades",
@@ -71,6 +72,45 @@ with col_u3:
 st.markdown(sensibilidad["hallazgo"])
 st.markdown("---")
 
+# Gráfica F1 con bootstrap
+st.subheader(f"F1 medio por escáner (umbral {umbral})")
+bootstrap_data=api_client.get_bootstrap(umbral)
+assert isinstance(bootstrap_data, list)
+bootstrap_data = sorted(bootstrap_data, key=lambda x:x["f1_mean"],reverse=True)
+
+scanner = [item["scanner"] for item in bootstrap_data]
+f1_mean = [item["f1_mean"] for item in bootstrap_data]
+ci_lows = [item["f1_mean"] - item["f1_ci_low"] for item in bootstrap_data]
+ci_highs = [item["f1_ci_high"] - item["f1_mean"] for item in bootstrap_data]
+colors = [SCANNER_COLORS[s] for s in scanner]
+
+fig = go.Figure()
+fig.add_trace(go.Bar(
+    x=[s.capitalize() for s in scanner],
+    y=f1_mean,
+    error_y=dict(
+        type="data",
+        symmetric= False,
+        array=ci_highs,
+        arrayminus=ci_lows,
+        color="#888888",
+        thickness=1.5,
+        width=8
+    ),
+    marker_color=colors,
+    width=0.5
+))
+fig.update_layout(
+    yaxis=dict(title="F1 medio", range=[0, 1.05]),
+    xaxis=dict(title="Escáner"),
+    showlegend=False,
+    height=400,
+    margin=dict(l=40,r=40,t=20,b=40),
+    plot_bgcolor="rgba(0,0,0,0)",
+    paper_bgcolor="rgba(0,0,0,0)",
+)
+st.plotly_chart(fig, use_container_width=True)
+st.markdown("---")
 
 
 st.write(f"Umbral seleccionado: **{umbral}**")
