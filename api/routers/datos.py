@@ -26,7 +26,7 @@ def _carga_normalized() -> pd.DataFrame:
 @router.get("/vulnerabilidades")
 def get_vulnerabilidades(
     scanner: str | None = Query(default=None, description="Filtro por escáner"),
-    imagen: str | None = Query(default=None, description="Filtro por imagen disponible en el corpus"),
+    imagen: str | None = Query(default=None, description="Imagen no disponible en corpus"),
     severity: str | None = Query(default=None, description="Filtro por severidad"),
     limit: int = Query(default=1000, ge=1, le=20000, description="Máximo de filas a devolver"),
 ):
@@ -62,8 +62,33 @@ def get_vulnerabilidades(
     total = len(df)
     df_limited = df.head(limit)
 
-    return{
+    return {
         "total": total,
         "devueltas": len(df_limited),
         "vulnerabilidades": df_limited.to_dict(orient="records"),
+    }
+
+@router.get("/ground-truth")
+def get_ground_truth(
+    umbral: int=Query(default=UMBRAL_DEFAULT, description="Umbral de consenso del GT (2=principal, 3=sensibilidad)"),
+):
+    """
+    Ground truth por consenso multi-tool. Umbral 2 da consenso parcial (+-1388 vulns), umbral 3 consenso total (+-173 vulns). Sin paginar: el dataset es pequeño y normalmente se quiere entero.
+    """
+    if umbral not in UMBRALES_VALIDOS:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Umbral no válido. Umbrales válidos: {sorted(UMBRALES_VALIDOS)}",
+        )
+    try:
+        df = pd.read_csv(ground_truth_csv(umbral))
+    except FileNotFoundError:
+        raise HTTPException(
+            status_code=503,
+            detail=f"GT con umbral {umbral} no encontrado. Por favor, ejecuta ground-truth/build_ground_truth.py",
+        )
+    return {
+        "umbral": umbral,
+        "total": len(df),
+        "ground_truth": df.to_dict(orient="records"),
     }
