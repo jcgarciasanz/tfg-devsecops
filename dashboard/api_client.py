@@ -10,11 +10,11 @@ from config import API_BASE_URL
 
 def _get(endpoint: str, params: dict | None = None) -> dict | list:
     """
-
+    GET centralizado con manejo de errores. Si la API no responde, aborta el dashboard mostrando un mensaje claro en lugar de soltar una traza.
     """
     url = f"{API_BASE_URL}{endpoint}"
     try:
-        response=  requests.get(url, params=params, timeout=10)
+        response= requests.get(url, params=params, timeout=10)
         response.raise_for_status()
         return response.json()
     except requests.exceptions.ConnectionError:
