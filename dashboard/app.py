@@ -202,4 +202,20 @@ st.caption(
     "Valor independiente del umbral del GT por construcción."
 )
 
+st.markdown("**Fleiss kappa (multi-evaluador)**")
+
+fleiss_data = api_client.get_fleiss()
+assert isinstance(fleiss_data, dict)
+
+st.metric(
+    label= "κ (Fleiss)",
+    value=f"{fleiss_data['kappa']:.4f}",
+)
+st.caption(
+    f"Fleiss kappa multi-evaluador para los 3 escáneres simultáneamente ({fleiss_data['scanners']}). "
+    "Generaliza Cohen kappa a N evaluadores. Calculado también sobre la unión de detecciones. "
+    "El valor negativo refleja que el desacuerdo dominante entre los tres escáneres está "
+    "alineado con lo predicho por sus kappas pareados."
+)
+
 st.markdown("---")
