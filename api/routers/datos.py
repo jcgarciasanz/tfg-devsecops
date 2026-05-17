@@ -26,7 +26,7 @@ def _carga_normalized() -> pd.DataFrame:
 @router.get("/vulnerabilidades")
 def get_vulnerabilidades(
     scanner: str | None = Query(default=None, description="Filtro por escáner"),
-    imagen: str | None = Query(default=None, description="Imagen no disponible en corpus"),
+    imagen: str | None = Query(default=None, description="Filtro por imagen del corpus"),
     severity: str | None = Query(default=None, description="Filtro por severidad"),
     limit: int = Query(default=1000, ge=1, le=20000, description="Máximo de filas a devolver"),
 ):
@@ -92,3 +92,11 @@ def get_ground_truth(
         "total": len(df),
         "ground_truth": df.to_dict(orient="records"),
     }
+
+@router.get("/imagenes")
+def get_imagenes():
+    """
+    Lista de imágenes del corpus declarado (leído lazy de normalized.csv).
+    """
+    imagenes = get_imagenes_corpus()
+    return {"total": len(imagenes), "imagenes": imagenes}
