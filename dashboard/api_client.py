@@ -55,6 +55,11 @@ def get_cohen() -> dict|list:
     """GET /concordancia/cohen — kappa por pares de scanners."""
     return _get("/concordancia/cohen")
 
+@st.cache_data
+def get_fleiss() -> dict|list:
+    """GET /concordancia/fleiss — kappa multi-evaluador."""
+    return _get("/concordancia/fleiss")
+
 # Endpoints utilidad
 @st.cache_data
 def get_health() -> dict|list:
@@ -65,3 +70,10 @@ def get_health() -> dict|list:
 def get_sensibilidad() -> dict | list:
     """GET /sensibilidad — hallazgo de la inversión del ranking."""
     return _get("/sensibilidad")
+
+#Endpoints datos
+
+@st.cache_data
+def get_imagenes() -> dict|list:
+    """GET /imagenes — corpus de imágenes."""
+    return _get("/imagenes")
