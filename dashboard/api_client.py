@@ -55,3 +55,13 @@ def get_cohen() -> dict|list:
     """GET /concordancia/cohen — kappa por pares de scanners."""
     return _get("/concordancia/cohen")
 
+# Endpoints utilidad
+@st.cache_data
+def get_health() -> dict|list:
+    """GET /health — metadata de la API."""
+    return _get("/health")
+
+@st.cache_data
+def get_sensibilidad() -> dict | list:
+    """GET /sensibilidad — hallazgo de la inversión del ranking."""
+    return _get("/sensibilidad")
