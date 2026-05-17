@@ -45,5 +45,33 @@ st.title("Comparativa de escáneres de vulnerabilidades en contenedores Docker")
 st.caption("Análisis estadístico sobre Trivy, Grype y Docker Scout — TFG, Grado en Informática, URJC")
 
 st.markdown("---")
+# Card de hallazgo
+st.subheader("Hallazgo principal")
+
+sensibilidad = api_client.get_sensibilidad()
+assert isinstance(sensibilidad, dict)
+
+col_u2, col_u3 = st.columns(2)
+
+with col_u2:
+    u2 = sensibilidad["umbral_2"]
+    top_u2 = u2["top_scanner"]
+    f1_top_u2 = u2["ranking"][0]["f1_mean"]
+    st.markdown("**Umbral 2** (consenso parcial)")
+    st.markdown(f"Top scanner: **{top_u2.capitalize()}**")
+    st.markdown(f"F1 medio: {f1_top_u2:.4f}")
+with col_u3:
+    u3 = sensibilidad["umbral_3"]
+    top_u3 = u3["top_scanner"]
+    f1_top_u3 = u3["ranking"][0]["f1_mean"]
+    st.markdown("**Umbral 3** (consenso total)")
+    st.markdown(f"Top scanner: **{top_u3.capitalize()}**")
+    st.markdown(f"F1 medio: {f1_top_u3:.4f}")
+
+st.markdown(sensibilidad["hallazgo"])
+st.markdown("---")
+
+
+
 st.write(f"Umbral seleccionado: **{umbral}**")
 st.info("Resto en construcción")
