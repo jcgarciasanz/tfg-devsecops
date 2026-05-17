@@ -174,5 +174,32 @@ st.caption(
     "FN: vulnerabilidades del GT no detectadas por el escáner."
 )
 
+# Concordancia entre escáneres
+st.subheader("Concordancia entre escáneres (sobre la unión de detecciones)")
+
+cohen_data = api_client.get_cohen()
+assert isinstance(cohen_data, list)
+
+st.markdown("**Cohen kappa (pareado)**")
+df_cohen=pd.DataFrame(cohen_data)
+df_cohen["par"]=df_cohen["scanner_a"].str.capitalize() + " - " + df_cohen["scanner_b"].str.capitalize()
+df_cohen = df_cohen[["par","kappa"]]
+
+st.dataframe(
+    df_cohen,
+    use_container_width=True,
+    hide_index=True,
+    column_config={
+        "par": st.column_config.TextColumn("Par de escáneres"),
+        "kappa": st.column_config.NumberColumn("κ", format="%.4f"),
+    },
+)
+st.caption(
+    "Cohen kappa pareado entre cada par de escáneres, calculado sobre la unión "
+    "de las detecciones (no sobre el GT) para evitar circularidad metodológica. "
+    "Escala (Landis-Koch 1977): < 0 peor que azar, 0–0.20 pobre, 0.21–0.40 razonable, "
+    "0.41–0.60 moderado, 0.61–0.80 sustancial, 0.81–1.00 casi perfecto. "
+    "Valor independiente del umbral del GT por construcción."
+)
 
 st.markdown("---")
