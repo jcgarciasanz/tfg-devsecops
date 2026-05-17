@@ -110,8 +110,40 @@ fig.update_layout(
     paper_bgcolor="rgba(0,0,0,0)",
 )
 st.plotly_chart(fig, use_container_width=True)
+
+#Métricas Friedman
+st.subheader(f"Test de Friedman (umbral {umbral})")
+friedman_data=api_client.get_friedman(umbral)
+assert isinstance(friedman_data, dict)
+col_chi, col_p, col_sig = st.columns(3)
+
+with col_chi:
+    st.metric(
+        label="Chi-cuadrado",
+        value=f"{friedman_data['statistic']:.4f}",
+    )
+with col_p:
+    st.metric(
+        label="p-valor",
+        value=f"{friedman_data['pvalue']:.4f}",
+    )
+with col_sig:
+    significativo = friedman_data["significativo"]
+    st.metric(
+        label="Significativo (α=0.05)",
+        value="Sí" if significativo else "No",
+    )
+
+st.caption(
+    f"Test no paramétrico de Friedman sobre F1 por imagen "
+    f"({friedman_data['num_imagenes']} imágenes-bloques, 3 escáneres-tratamientos). "
+    f"H₀: no hay diferencias entre escáneres. "
+    f"{'Rechazada' if significativo else 'No rechazada'} con p < 0.05."
+)
+
+
+
+
+
+
 st.markdown("---")
-
-
-st.write(f"Umbral seleccionado: **{umbral}**")
-st.info("Resto en construcción")
