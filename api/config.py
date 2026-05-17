@@ -55,6 +55,12 @@ def get_imagenes_corpus()-> list[str]:
     df = pd.read_csv(NORMALIZED_CSV)
     return sorted(df["image"].unique().tolist())
 
+# Severidades válidas: carga lazy + cache
+@lru_cache(maxsize=1)
+def get_severities_validas() -> set[str]:
+    """Conjunto de severidades presentes en normalized.csv. Lazy + cache, mismo patrón que get_imagenes_corpus(). Se deriva de los datos para que API y CSV no se desincronicen."""
+    df=pd.read_csv(NORMALIZED_CSV, usecols=["severity"])
+    return set(df["severity"].dropna().unique())
 
 
 
