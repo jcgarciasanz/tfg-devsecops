@@ -5,6 +5,7 @@ Frontend interactivo de los datos de Trivy/Grype/DockerScout
 
 import streamlit as st
 import plotly.graph_objects as go
+import pandas as pd
 import api_client
 from config import UMBRALES_DISPONIBLES, UMBRAL_DEFAULT, SCANNER_COLORS
 
@@ -141,9 +142,37 @@ st.caption(
     f"{'Rechazada' if significativo else 'No rechazada'} con p < 0.05."
 )
 
+# Tabla scanner x imagen
 
+st.subheader(f"Métricas por escáner e imagen (umbral {umbral})")
+metricas_data = api_client.get_metricas(umbral)
+assert isinstance(metricas_data, list)
 
+df_metricas = pd.DataFrame(metricas_data)
+df_metricas = df_metricas[["scanner","image","tp","fp","fn","precision","recall","f1"]]
+df_metricas=df_metricas.sort_values(by=["scanner","image"]).reset_index(drop=True)
 
+st.dataframe(
+    df_metricas,
+    use_container_width=True,
+    hide_index=True,
+    column_config={
+        "scanner": st.column_config.TextColumn("Escáner"),
+        "image": st.column_config.TextColumn("Imagen"),
+        "tp":st.column_config.NumberColumn("TP", format="%d"),
+        "fp":st.column_config.NumberColumn("FP", format="%d"),
+        "fn":st.column_config.NumberColumn("FN", format="%d"),
+        "precision":st.column_config.NumberColumn("Precision", format="%.4f"),
+        "recall": st.column_config.NumberColumn("Recall", format="%.4f"),
+        "f1":st.column_config.NumberColumn("F1", format="%.4f"),
+    },
+)
+
+st.caption(
+    "P/R/F1 calculados contra el ground truth del umbral seleccionado. "
+    "TP: vulnerabilidades del GT detectadas. FP: detecciones del escáner no presentes en el GT. "
+    "FN: vulnerabilidades del GT no detectadas por el escáner."
+)
 
 
 st.markdown("---")
