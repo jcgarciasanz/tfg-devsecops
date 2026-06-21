@@ -1,0 +1,4 @@
+scanner_a,scanner_b,kappa
+grype,scout,-0.4943
+grype,trivy,0.5659
+scout,trivy,-0.3491

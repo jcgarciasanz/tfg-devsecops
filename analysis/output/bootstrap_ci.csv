@@ -1,0 +1,4 @@
+scanner,f1_mean,f1_ci_low,f1_ci_high
+grype,0.7564,0.5866,0.9196
+scout,0.2621,0.1742,0.3678
+trivy,0.9878,0.983,0.9941
